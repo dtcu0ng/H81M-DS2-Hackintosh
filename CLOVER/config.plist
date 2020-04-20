@@ -180,8 +180,6 @@
 		<key>Timeout</key>
 		<integer>1</integer>
 	</dict>
-	<key>Comment</key>
-	<string>hackintosh.vn</string>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
