@@ -12,7 +12,7 @@ Just a Clover folder for mobo Gigabyte H81M-DS2 (rev3.0)
 + Current macOS installed on this build: 10.13.6 High Sierra (17G12034)
 
 # This spec was run:
-+ Newest Windows 10 build
++ Lastest Windows 10 build
 + macOS Catalina
 + macOS Mojave
 + macOS High Sierra
