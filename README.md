@@ -1,21 +1,40 @@
-# H81M-DS2-HackintoshClover
+# H81M-DS2-Hackintosh
 
-Just a Clover folder for mobo Gigabyte H81M-DS2 (rev3.0)
+Just a Clover folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
-# My spec:
-+ CPU: Intel Pentium G3250 (Haswell, 3,20GHz, 2 core)
+# My PC specification:
++ Mainboard Gigabyte H81M-DS2 (rev3.0)
++ CPU: Intel Pentium G3250 (Haswell, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
 + RAM: 4GB
 + GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR3), natively support in Mojave, Catalina.
 + SSD: Kingmax SSD 128GB
 + Network: Realtek RTL8111 ALC887 (best layout-id in my build is 3)
 + Sound: Realtek ALC887
-+ Current macOS installed on this build: 10.13.6 High Sierra (17G12034)
++ Current macOS installed on this build: 10.15.4 Catalina (19E287)
++ SMBIOS: iMac14,1 or iMac14,2
 
-# This spec was run:
+# This specification was run:
 + Lastest Windows 10 build
 + macOS Catalina
 + macOS Mojave
 + macOS High Sierra
+
+# What is working:
++ Microphone (pink jack input)
++ Speaker (green jack input) 
++ Ethernet (en0)
++ App Store
++ iBooks
++ iCloud Drive
++ Graphics (GT730 is natively support in Catalina, other NVIDIA card please check when install Catalina.)
++ Intel QuickSync/Hardware Acceleration (use SMBIOS iMac14,1 won't work, use iMac14,2 instead)
++ USB 2.0
++ USB 3.0
++ Airdrop (not test yet cuz i don't have external internet/bluetooth card)
++ AirPlay (same as Airdrop)
++ Handoff (same as Airdrop)
++ iMessages (not fix yet)
++ FaceTime (not fix yet)
 
 # Attention:
 + Because macOS don't support Pentium, Celeron CPUs, so we need a fake CPUID for that:
