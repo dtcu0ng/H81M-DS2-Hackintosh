@@ -11,7 +11,7 @@ Guide for OpenCore Pentium CPUs will update soon.
 + SSD: Kingmax SSD 128GB
 + Network: Realtek RTL8111 ALC887 (best layout-id in my build is 3)
 + Sound: Realtek ALC887
-+ Current macOS installed on this build: 10.15.4 Catalina (19E287)
++ Current macOS installed on this build: 10.15.4 Catalina (19E287) + macOS High Sierra (17G14019)
 + SMBIOS: iMac14,1 or iMac14,2
 
 # This specification was run:
@@ -41,6 +41,7 @@ Guide for OpenCore Pentium CPUs will update soon.
 + Because macOS don't support Pentium, Celeron CPUs, so we need a fake CPUID for that:
 + In Clover bootloader, press O, go to Binary patching, set the FakeCPUID to: 0x0306A0 or 0x0306A9 (both have been tested by me)
 + Or you can set FakeCPUID in Clover Configurator by going to Kernel and Kext Patches section, set the FakeCPUID to 0x0306A0 or 0x0306A9 (this will save your time when boot installed macOS in your hard drive)
++ SIP was completely disabled on both OC and Clover work EFI (The EFI for install macOS with OpenCore still keep SIP enabled)
 
 # Post-install:
 + (Only High Sierra ) If you have NVIDIA graphics card, use this terminal command to install Web driver
