@@ -1,12 +1,13 @@
 # H81M-DS2-Hackintosh
 
 Just a Clover folder for mainboard Gigabyte H81M-DS2 (rev3.0)
+Guide for OpenCore Pentium CPUs will update soon.
 
 # My PC specification:
 + Mainboard Gigabyte H81M-DS2 (rev3.0)
 + CPU: Intel Pentium G3250 (Haswell, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
 + RAM: 4GB
-+ GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR3), natively support in Mojave, Catalina.
++ GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina.
 + SSD: Kingmax SSD 128GB
 + Network: Realtek RTL8111 ALC887 (best layout-id in my build is 3)
 + Sound: Realtek ALC887
@@ -56,6 +57,7 @@ Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](
 # Credit
 + Apple for macOS
 + [hackintosh.vn](https://hackintosh.vn) for Vietnamese guides
-+ [Olarila](https://olarila.com) for English guides, configs
++ [Olarila](https://olarila.com) for Clover English guides, configs
 + [Benjamin-Dobell](https://github.com/Benjamin-Dobell/) for NVIDIA Web scripts
++ [Dortania](https://dortania.github.io/OpenCore-Install-Guide/) for OpenCore guides
 + NVIDIA for all the drivers
