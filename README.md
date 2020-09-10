@@ -1,8 +1,8 @@
 # H81M-DS2-Hackintosh
 
-Just a Clover folder for mainboard Gigabyte H81M-DS2 (rev3.0)
+Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
-Guide for OpenCore Pentium CPUs will update soon.
+======
 
 # My PC specification:
 + Mainboard Gigabyte H81M-DS2 (rev3.0)
@@ -15,12 +15,16 @@ Guide for OpenCore Pentium CPUs will update soon.
 + Current macOS installed on this build: macOS High Sierra (17G14019)
 + SMBIOS: iMac14,1 or iMac14,2 (iMac15,1 for Big Sur)
 
+======
+
 # This specification was run:
 + Lastest Windows 10 build
 + macOS Big Sur Beta 5
 + macOS Catalina
 + macOS Mojave
 + macOS High Sierra
+
+======
 
 # What is working:
 + Microphone (pink jack input)
@@ -39,11 +43,13 @@ Guide for OpenCore Pentium CPUs will update soon.
 + iMessages (not fix yet)
 + FaceTime (not fix yet)
 
+======
+
+# Guide for Pentium
 # Attention:
-+ Because macOS don't support Pentium, Celeron CPUs, so we need a fake CPUID for that:
-+ In Clover bootloader, press O, go to Binary patching, set the FakeCPUID to: 0x0306A0 or 0x0306A9 (both have been tested by me)
-+ Or you can set FakeCPUID in Clover Configurator by going to Kernel and Kext Patches section, set the FakeCPUID to 0x0306A0 or 0x0306A9 (this will save your time when boot installed macOS in your hard drive)
 + SIP was completely disabled on both OC and Clover EFI
+
+======
 
 # Post-install:
 + (Only High Sierra ) If you have NVIDIA graphics card, use this terminal command to install Web driver
@@ -56,6 +62,8 @@ Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](
 + Don't forget to add nvda_drv=1 in boot-args and select NVIDIAWeb on System Parameters (Clover Configuator)
 
 + If you have AMD cards, you're natively supported.
+
+======
 
 # Credit
 + Apple for macOS
