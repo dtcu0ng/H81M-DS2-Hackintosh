@@ -42,7 +42,7 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + SIP was completely disabled on both OC and Clover EFI
 
 # Post-install:
-+ (Only High Sierra ) If you have NVIDIA graphics card, use this terminal command to install Web driver
++ (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
 
 ```
 bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)
@@ -54,9 +54,7 @@ Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](
 + If you have AMD cards, you're natively supported.
 
 # Credit
-+ Apple for macOS
 + [hackintosh.vn](https://hackintosh.vn) for Vietnamese guides
 + [Olarila](https://olarila.com) for Clover English guides, configs
 + [Benjamin-Dobell](https://github.com/Benjamin-Dobell/) for NVIDIA Web scripts
 + [Dortania](https://dortania.github.io/OpenCore-Install-Guide/) for OpenCore guides
-+ NVIDIA for all the drivers
