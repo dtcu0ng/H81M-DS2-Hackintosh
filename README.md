@@ -38,6 +38,20 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + FaceTime (not fix yet)
 
 # Guide for Pentium
++ Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID patches for that CPU to boot in MacOS:
+
+Clover tutorial:
+
++ In Clover bootloader, press O, go to Binary patching, set the FakeCPUID to: 0x0306A0 or 0x0306A9 (both have been tested by me)
++ Or you can set FakeCPUID in Clover Configurator by going to Kernel and Kext Patches section, set the FakeCPUID to 0x0306A0 or 0x0306A9 (this will save your time when boot installed macOS in your hard drive)
+
+OpenCore tutorial:
++ In your config.plist, goto Kernel > Emulate add these data into require value
+```
+CpuidData: A9060300 00000000 00000000 00000000
+CpuidMask: FFFFFFFF 00000000 00000000 00000000
+```
+
 # Attention:
 + SIP was completely disabled on both OC and Clover EFI
 
