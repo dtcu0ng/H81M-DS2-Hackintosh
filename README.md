@@ -10,7 +10,7 @@ Guide for OpenCore Pentium CPUs will update soon.
 + RAM: 4GB
 + GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina.
 + SSD: Kingmax SSD 128GB
-+ Network: Realtek RTL8111 ALC887 (best layout-id in my build is 3)
++ Network: Realtek RTL8111 (best layout-id in my build is 3)
 + Sound: Realtek ALC887
 + Current macOS installed on this build: macOS High Sierra (17G14019)
 + SMBIOS: iMac14,1 or iMac14,2 (iMac15,1 for Big Sur)
