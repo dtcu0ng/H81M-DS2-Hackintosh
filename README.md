@@ -2,8 +2,6 @@
 
 Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
-======
-
 # My PC specification:
 + Mainboard Gigabyte H81M-DS2 (rev3.0)
 + CPU: Intel Pentium G3250 (Haswell, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
@@ -15,16 +13,12 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + Current macOS installed on this build: macOS High Sierra (17G14019)
 + SMBIOS: iMac14,1 or iMac14,2 (iMac15,1 for Big Sur)
 
-======
-
 # This specification was run:
 + Lastest Windows 10 build
 + macOS Big Sur Beta 5
 + macOS Catalina
 + macOS Mojave
 + macOS High Sierra
-
-======
 
 # What is working:
 + Microphone (pink jack input)
@@ -43,13 +37,9 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + iMessages (not fix yet)
 + FaceTime (not fix yet)
 
-======
-
 # Guide for Pentium
 # Attention:
 + SIP was completely disabled on both OC and Clover EFI
-
-======
 
 # Post-install:
 + (Only High Sierra ) If you have NVIDIA graphics card, use this terminal command to install Web driver
@@ -62,8 +52,6 @@ Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](
 + Don't forget to add nvda_drv=1 in boot-args and select NVIDIAWeb on System Parameters (Clover Configuator)
 
 + If you have AMD cards, you're natively supported.
-
-======
 
 # Credit
 + Apple for macOS
