@@ -54,6 +54,10 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 
 # Attention:
 + SIP was completely disabled on both OC and Clover EFI
++ DummyPowerManagement is ENABLE in OC, this is not follow the Vanilia OC Guide (because my CPU require the function like NullCPUPowerManagement.kext to boot in, if you have any issues, just delete NullCPUPowerManagement.kext if you using Clover or Disable the DummyPowerManagement in OC config.plist at Kernel > Quirk
++ NVRAM > Writeflash is DISABLE in OC, this is not follow the Vanilia OC Guide (I don't know why this need to Disable, if not, the bootloader hang in OC: Watchdog status is 0. Change this value if your hack have issues.)
++ I'm using HFSPlusLegacy.efi instead of HFSPlus.efi (the same problem with NVRAM > Writeflash, mentioned above.)
++ These both above problem are described like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
 # Post-install:
 + (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
