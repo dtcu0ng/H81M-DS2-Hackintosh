@@ -4,7 +4,7 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
 # My PC specification:
 + Mainboard Gigabyte H81M-DS2 (rev3.0)
-+ CPU: Intel Pentium G3250 (Haswell, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
++ CPU: Intel Pentium G3250 (Haswell Refresh, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
 + RAM: 4GB
 + GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina.
 + Disk: Netac SSD 128GB (Windows installed), WD Blue 256GB (macOS 10.13.6 installed), dualboot with Bootcamp.
@@ -15,10 +15,12 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
 # This specification was run:
 + Lastest Windows 10 build
++ macOS Big Sur
 + macOS Big Sur Beta 5
 + macOS Catalina
 + macOS Mojave
 + macOS High Sierra
++ Mac OS X El Captain
 
 # What is working:
 + Microphone (pink jack input)
@@ -66,10 +68,8 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)
 ```
 Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](https://github.com/Benjamin-Dobell/nvidia-update/) to learn more.
-+ (Only High Sierra ) I installed CUDA driver too, get this in [here](https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/)
++ (Only High Sierra) I installed CUDA driver too, get this in [here](https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/)
 + Don't forget to add nvda_drv=1 in boot-args and select NVIDIAWeb on System Parameters (Clover Configuator)
-
-+ If you have AMD cards, you're natively supported.
 
 # Credit
 + [hackintosh.vn](https://hackintosh.vn) for Vietnamese guides
