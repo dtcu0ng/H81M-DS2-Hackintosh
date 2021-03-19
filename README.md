@@ -7,7 +7,7 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + CPU: Intel Pentium G3250 (Haswell Refresh, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
 + RAM: 8GB (2x4GB)
 + GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina.
-+ Disk: Netac SSD 128GB (Windows installed), WD Blue 256GB (macOS 10.13.6 installed), dualboot with Bootcamp.
++ Disk: Netac SSD 128GB (Windows installed), WD Blue 256GB (macOS 10.13.6 installed)
 + Network: Realtek RTL8111 (best layout-id in my build is 3)
 + Sound: Realtek ALC887
 + Current macOS installed on this build: macOS High Sierra (17G14019)
@@ -39,6 +39,9 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + Handoff (same as Airdrop)
 + iMessages (not fix yet)
 + FaceTime (not fix yet)
+
+# Not working for me:
++ Dual boot using Bootcamp (I need select another OS disk in UEFI settings to boot another OS.) 
 
 # Guide for Pentium
 + Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID patches for that CPU to boot in MacOS:
