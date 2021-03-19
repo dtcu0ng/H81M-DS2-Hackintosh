@@ -1,6 +1,6 @@
-# H81M-DS2-Hackintosh
+# H81M-DS2-HackintoshEFI
 
-Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
+EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
 # My PC specification:
 + Mainboard Gigabyte H81M-DS2 (rev3.0)
