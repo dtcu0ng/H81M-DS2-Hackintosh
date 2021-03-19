@@ -2,46 +2,60 @@
 
 EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
+| Current installed  | OS(es) |
+| ------------- | ------------- |
+| ✅  | Lastest Windows 10 build  |
+| ✅  | macOS Sierra |
+
 # My PC specification:
-+ Mainboard Gigabyte H81M-DS2 (rev3.0)
-+ CPU: Intel Pentium G3250 (Haswell Refresh, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
-+ RAM: 8GB (2x4GB)
-+ GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina.
-+ Disk: Netac SSD 128GB (Windows installed), WD Blue 256GB (macOS 10.13.6 installed)
-+ Network: Realtek RTL8111 (best layout-id in my build is 3)
-+ Sound: Realtek ALC887
-+ Current macOS installed on this build: macOS High Sierra (17G14019)
-+ SMBIOS: iMac14,1 or iMac14,2 (iMac15,1 for Big Sur)
+
+| Part  | Info |
+| ------------- | ------------- |
+| Mainboard | Gigabyte H81M-DS2 (rev3.0)  |
+| CPU:  | Intel Pentium G3250 (Haswell Refresh, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)  |
+| RAM:  | 8GB (2x4GB)  |
+| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. |
+| Disk:  | Netac SSD 128GB (Windows installed), WD Blue 256GB (macOS 10.13.6 installed)  |
+| Network: | Realtek RTL8111 |
+| Sound:  | Realtek ALC887 (best layout-id in my build is 3)  |
+| SMBIOS:  | iMac14,1 or iMac14,2 (iMac15,1 for Big Sur)  |
 
 # This specification was run:
-+ Lastest Windows 10 build
-+ macOS Big Sur
-+ macOS Big Sur Beta 5
-+ macOS Catalina
-+ macOS Mojave
-+ macOS High Sierra
-+ macOS Sierra
-+ Mac OS X El Captain
+
+| Status  | Operating System & Version |
+| ------------- | ------------- |
+| ✅  | Lastest Windows 10 build  |
+| ✅  | macOS Big Sur  |
+| ✅  | macOS Big Sur Beta 5  |
+| ✅  | macOS Catalina |
+| ✅  | macOS Mojave  |
+| ✅  | macOS High Sierra  |
+| ✅  | macOS Sierra  |
+| ✅  | Mac OS X El Captain  |
 
 # What is working:
-+ Microphone (pink jack input)
-+ Speaker (green jack input) 
-+ Ethernet (en0)
-+ App Store
-+ iBooks
-+ iCloud Drive
-+ Graphics (GT730 is natively support in Catalina, other NVIDIA card please check when install Catalina.)
-+ Intel QuickSync/Hardware Acceleration (use SMBIOS iMac14,1 won't work, use iMac14,2 instead)
-+ USB 2.0
-+ USB 3.0
-+ Airdrop (not test yet cuz i don't have external internet/bluetooth card)
-+ AirPlay (same as Airdrop)
-+ Handoff (same as Airdrop)
-+ iMessages (not fix yet)
-+ FaceTime (not fix yet)
+| Status  | Functions: |
+| ------------- | ------------- |
+| ✅  | Microphone (pink jack input)  |
+| ✅  | Speaker (green jack input)  |
+| ✅  | Ethernet (en0)  |
+| ✅  | Services (App Store, iMessages, Facetime,...) |
+| ✅  | Graphics card* |
+| ✅  | Intel QuickSync/Hardware Acceleration** |
+| ✅  | USB 2.0/3.0  |
+| ✅  | Mac OS X El Captain  |
+
+Notes: 
+(*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Catalina.
+(**): Use SMBIOS iMac14,1 won't work, use iMac14,2 instead
 
 # Not working for me:
-+ Dual boot using Bootcamp (I need select another OS disk in UEFI settings to boot another OS.) 
+| Status  | Functions: |
+| ------------- | ------------- |
+| ✅  | Bootcamp***  |
+
+Notes:
+(***): I need select another OS disk in UEFI settings to boot another OS.) 
 
 # Guide for Pentium
 + Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID patches for that CPU to boot in MacOS:
