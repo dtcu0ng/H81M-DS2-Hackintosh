@@ -53,7 +53,7 @@ Notes:
 # Not working for me:
 | Status  | Functions: |
 | ------------- | ------------- |
-| ✅  | Bootcamp***  |
+| ❌  | Bootcamp***  |
 
 Notes:
 (***): I need select another OS disk in UEFI settings to boot another OS.
