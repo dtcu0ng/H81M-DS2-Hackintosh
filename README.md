@@ -5,7 +5,7 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 # My PC specification:
 + Mainboard Gigabyte H81M-DS2 (rev3.0)
 + CPU: Intel Pentium G3250 (Haswell Refresh, 3,20GHz, 2 core) (FakeCPUID set to 0x0306A9)
-+ RAM: 4GB
++ RAM: 8GB (2x4GB)
 + GPU: NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina.
 + Disk: Netac SSD 128GB (Windows installed), WD Blue 256GB (macOS 10.13.6 installed), dualboot with Bootcamp.
 + Network: Realtek RTL8111 (best layout-id in my build is 3)
