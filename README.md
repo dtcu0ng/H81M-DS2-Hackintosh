@@ -20,6 +20,7 @@ Just a EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 + macOS Catalina
 + macOS Mojave
 + macOS High Sierra
++ macOS Sierra
 + Mac OS X El Captain
 
 # What is working:
