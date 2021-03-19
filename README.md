@@ -47,6 +47,7 @@ EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
 Notes: 
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Catalina.
+
 (**): Use SMBIOS iMac14,1 won't work, use iMac14,2 instead
 
 # Not working for me:
@@ -55,7 +56,7 @@ Notes:
 | ✅  | Bootcamp***  |
 
 Notes:
-(***): I need select another OS disk in UEFI settings to boot another OS.) 
+(***): I need select another OS disk in UEFI settings to boot another OS.
 
 # Guide for Pentium
 + Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID patches for that CPU to boot in MacOS:
