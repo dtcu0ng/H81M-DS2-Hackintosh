@@ -5,7 +5,7 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 | Current installed  | OS(es) |
 | ------------- | ------------- |
 | ✅  | Latest Windows 10 Insider Preview build  |
-| ✅  | macOS Catalina |
+| ✅  | macOS Big Sur |
 
 # My PC specification
 
@@ -67,6 +67,7 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 ```
 
 # Big notes
++ If you use GT730 2GB GDDR5 from Gigabyte like me, you should add adgpmod=pikera in boot-arg. That fix screen flash problem.
 + DummyPowerManagement is ENABLED, this is not follow the Vanilia OC Guide (because my CPU require the function like NullCPUPowerManagement.kext to boot in, if you have any issues disable DummyPowerManagement in OC config.plist at Kernel > Emulate
 + NVRAM > Writeflash is DISABLED, this is not follow the Vanilia OC Guide (I don't know why this need to disabled, if not, the bootloader hang in OC: Watchdog status is 0. Change this value if your hack have issues.)
 + I'm using HFSPlusLegacy.efi instead of HFSPlus.efi (the same problem with NVRAM > Writeflash, mentioned above.)
