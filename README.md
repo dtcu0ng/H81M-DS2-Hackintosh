@@ -20,6 +20,10 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 | Sound:  | Realtek ALC887 (best layout-id in my build is 3)  |
 | SMBIOS:  | iMac15,1  |
 
+| Windows  | macOS |
+| ------------- | ------------- |
+| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac.png "System specfication")  |
+
 # This specification was run
 
 | Status  | Operating System & Version |
