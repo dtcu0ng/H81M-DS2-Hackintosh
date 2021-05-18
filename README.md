@@ -51,7 +51,7 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 | ✅  | Bootcamp***  |
 
 Notes: 
-(*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Catalina.
+(*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
 
 # Not working
 | Status  | Functions: |
@@ -70,7 +70,7 @@ Tutorial:
 CpuidData: A9060300 00000000 00000000 00000000
 CpuidMask: FFFFFFFF 00000000 00000000 00000000
 ```
-+ Goto Kernel > DummyPowerManagement, set it to Enabled (True)
++ Enable Kernel > DummyPowerManagement
 + Disable NVRAM > WriteFlash
 + Replace HFSPlus.efi to [HFSPlusLegacy.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlusLegacy.efi)
 + Don't forget to take an OC Snapshot in ProperTree after you work with files!
