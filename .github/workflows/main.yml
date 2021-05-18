@@ -13,11 +13,9 @@ jobs:
       - name: Install Dependency
         run: |
           mkdir "OpenCore" && cd "OpenCore" || exit 1
-          hg="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
-          rawURL="https://github.com/acidanthera/OpenCorePkg/tags"
-          rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
-          url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
-          echo "Downloading ${url##*\/}"
+          RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
+          TAG="${RELEASE_URL##*/}"
+          url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-RELEASE.zip
           curl -# -L -O "${url}" || exit 1
           unzip -qq "*.zip" || exit 1
           chmod +x Utilities/ocvalidate/ocvalidate || exit 1
