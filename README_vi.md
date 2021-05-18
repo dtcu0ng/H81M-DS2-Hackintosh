@@ -1,6 +1,8 @@
 # H81M-DS2-HackintoshEFI
 
-![Kiểm tra ocvalidate](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions/workflows/main.yml/badge.svg)
+[![Kiểm tra ocvalidate](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/workflows/CI/badge.svg)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions)
+
+English version : [here](README.md)
 
 OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 
