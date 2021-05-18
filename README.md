@@ -1,6 +1,7 @@
 # H81M-DS2-HackintoshEFI
 
 OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
+Vietnamese version : [here](README_vi.md)
 
 | Current installed  | OS(es) |
 | ------------- | ------------- |
@@ -43,11 +44,10 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 | ✅  | Microphone (pink jack input)  |
 | ✅  | Speaker (green jack input)  |
 | ✅  | Ethernet (en0)  |
-| ✅  | Services (App Store, iMessages, Facetime,...) |
+| ✅  | Services (App Store, Apple Music,...) |
 | ✅  | Graphics card* |
 | ✅  | Intel QuickSync/Hardware Acceleration |
 | ✅  | USB 2.0/3.0  |
-| ✅  | Mac OS X El Captain  |
 | ✅  | Bootcamp***  |
 
 Notes: 
@@ -56,7 +56,7 @@ Notes:
 # Not working
 | Status  | Functions: |
 | ------------- | ------------- |
-| ❌  | iServices (iMessages, Facetime,...)  |
+| ❌  | iMessages, Facetime,...  |
 
 Notes:
 (***): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
