@@ -1,6 +1,7 @@
 # H81M-DS2-HackintoshEFI
 
 OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
+
 Vietnamese version : [here](README_vi.md)
 
 | Current installed  | OS(es) |
@@ -80,7 +81,7 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 + If you use GT730 2GB GDDR5 from Gigabyte like me, you should add agdpmod=pikera in boot-arg. That fix screen flash problem.
 
 # Post-install:
-+ (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
++ (Only High Sierra) If you have NVIDIA graphics card (except RTX(s), GTX 16xx, GTX 15xx), use this terminal command to install Web driver
 
 ```
 bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)
