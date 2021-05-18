@@ -4,7 +4,7 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
 | Current installed  | OS(es) |
 | ------------- | ------------- |
-| ✅  | Latest Windows 10 Insider Preview build  |
+| ✅  | Windows 10  |
 | ✅  | macOS Big Sur |
 
 # My PC specification
