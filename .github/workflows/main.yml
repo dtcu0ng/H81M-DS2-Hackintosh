@@ -9,12 +9,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-
+      
       - name: Install Dependency
         run: |
           mkdir "OpenCore" && cd "OpenCore" || exit 1
           hg="grep -A 2 OpenCorePkg | grep -m 1 RELEASE"
-          rawURL="https://github.com/dortania/build-repo/tags"
+          rawURL="https://github.com/acidanthera/OpenCorePkg/tags"
           rawURL="https://github.com$(curl -L --silent "${rawURL}" | grep -m 1 'OpenCorePkg' | tr -d '"' | tr -d ' ' | tr -d '>' | sed -e 's/<ahref=//')"
           url="https://github.com$(curl -L --silent "${rawURL}" | grep '/download/' | eval "${hg}" | sed 's/^[^"]*"\([^"]*\)".*/\1/')"
           echo "Downloading ${url##*\/}"
