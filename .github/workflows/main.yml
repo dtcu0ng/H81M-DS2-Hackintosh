@@ -1,11 +1,11 @@
 name: CI
-
+# based on https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/main/.github/workflows/main.yml
 on:
   push:
 
 jobs:
   analyze-oc-config:
-    name: Analyze OpenCore Configs
+    name: Analyze config
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
