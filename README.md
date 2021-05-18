@@ -59,7 +59,7 @@ Notes:
 | ❌  | iServices (iMessages, Facetime,...)  |
 
 Notes:
-(***): If Bootcamp won't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
+(***): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
 # Guide for Low-end CPUs (Pentium, Celeron)
 + Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
