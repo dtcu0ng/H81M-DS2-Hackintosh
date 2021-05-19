@@ -4,7 +4,7 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0)
 
 [![ocvalidate check](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/workflows/CI/badge.svg)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions)
 
-Phiên bản Tiếng Việt : [ở đây](README_vi.md)
+English | [Vietnamese](README_vi.md)
 
 | Current installed  | OS(es) |
 | ------------- | ------------- |
