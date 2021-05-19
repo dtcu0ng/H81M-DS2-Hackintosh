@@ -20,6 +20,10 @@ jobs:
           unzip -qq "*.zip" || exit 1
           chmod +x Utilities/ocvalidate/ocvalidate || exit 1
 
+      - name: Check OpenCore version
+        run: |
+          ./OpenCore/Utilities/ocvalidate/ocvalidate --version
+
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate --version ./EFI/OC/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./EFI/OC/config.plist || exit 1
