@@ -4,6 +4,16 @@ on:
   push:
 
 jobs:
+  download-kexts:
+    name: Download kexts
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download kext
+        run: |
+          chmod +x ./download_kext.sh && ./download_kext.sh
+
   analyze-oc-config:
     name: Analyze config
     runs-on: macos-latest
