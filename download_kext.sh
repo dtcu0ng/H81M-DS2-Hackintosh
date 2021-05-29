@@ -38,12 +38,11 @@ applealc_download() {
     download_kext_gh
 }
 
-usbinjectall_download() {
-    KEXT_NAME="OS-X-USB-Inject-All"
-    echo Downloading RehabMan-USBInjectAll-2018-1108.zip
-    curl -# -L -O "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip" || exit 1
-    unzip -qq "RehabMan-USBInjectAll-2018-1108.zip" || exit 1
-}
+#usbinjectall_download() {
+#    echo Downloading RehabMan-USBInjectAll-2018-1108.zip
+#    curl -# -L -O "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip" || exit 1
+#    unzip -qq "RehabMan-USBInjectAll-2018-1108.zip" || exit 1
+#}
 
 main(){
     mkdir DownloadedKexts
@@ -53,7 +52,7 @@ main(){
     lilu_download
     realtek8111_download
     applealc_download
-    usbinjectall_download
+    #usbinjectall_download
     ls
 }
 
