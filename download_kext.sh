@@ -1,19 +1,21 @@
 #!/bin/bash
-download_kext () {
-    echo Downloading $KEXT_NAME
+download_kext_gh () {
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$FULL_KEXT_NAME/releases/latest)
     TAG="${RELEASE_URL##*/}"
     url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_NAME-$TAG-RELEASE.zip
+    echo Downloading $KEXT_NAME v$TAG
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$KEXT_NAME-$TAG-RELEASE.zip" || exit 1
 }
 
-FULL_KEXT_NAME="acidanthera/VirtualSMC"
-KEXT_NAME="VirtualSMC"
-download_kext
-
-FULL_KEXT_NAME="acidanthera/WhateverGreen"
-KEXT_NAME="WhateverGreen"
-download_kext
-
-ls #print out what happended
+virtualsmc_download () {
+    FULL_KEXT_NAME="acidanthera/VirtualSMC"
+    KEXT_NAME="VirtualSMC"
+    download_kext_gh
+    mv /Kext/VirtualSMC.kext /EFI/OC/Kexts/VirtualSMC.kext
+    mv /Kext/SMCProcessor.kext /EFI/OC/Kexts/SMCProcessor.kext
+    mv /Kext/SMCSuperIO.kext /EFI/OC/Kexts/SMCSuperIO.kext
+    rm -rf /Kexts
+    cd /EFI/OC/Kexts/
+    ls
+}
