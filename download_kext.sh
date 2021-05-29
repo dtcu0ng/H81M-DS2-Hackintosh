@@ -8,17 +8,53 @@ download_kext_gh () {
     unzip -qq "$KEXT_NAME-$TAG-RELEASE.zip" || exit 1
 }
 
-virtualsmc_download () {
+virtualsmc_download() {
     FULL_KEXT_NAME="acidanthera/VirtualSMC"
     KEXT_NAME="VirtualSMC"
     download_kext_gh
-    cp -R Kexts/VirtualSMC.kext ./EFI/OC/Kexts/VirtualSMC.kext
-    cp -R Kexts/SMCProcessor.kext ./EFI/OC/Kexts/SMCProcessor.kext
-    cp -R Kexts/SMCSuperIO.kext ./EFI/OC/Kexts/SMCSuperIO.kext
-    rm -rf Kexts/
-    ls
-    cd ./EFI/OC/Kexts
+}
+
+whatevergreen_download() {
+    FULL_KEXT_NAME="acidanthera/WhateverGreen"
+    KEXT_NAME="WhateverGreen"
+    download_kext_gh
+}
+
+lilu_download() {
+    FULL_KEXT_NAME="acidanthera/lilu"
+    KEXT_NAME="Lilu"
+    download_kext_gh
+}
+
+realtek8111_download() {
+    FULL_KEXT_NAME="Mieze/RTL8111_driver_for_OS_X"
+    KEXT_NAME="RTL8111_driver_for_OS_X"
+    download_kext_gh
+}
+
+applealc_download() {
+    FULL_KEXT_NAME="acidanthera/AppleALC"
+    KEXT_NAME="AppleALC"
+    download_kext_gh
+}
+
+usbinjectall_download() {
+    KEXT_NAME="OS-X-USB-Inject-All"
+    echo Downloading RehabMan-USBInjectAll-2018-1108.zip
+    curl -# -L -O "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip" || exit 1
+    unzip -qq "RehabMan-USBInjectAll-2018-1108.zip" || exit 1
+}
+
+main(){
+    mkdir DownloadedKexts
+    cd DownloadedKexts
+    virtualsmc_download
+    whatevergreen_download
+    lilu_download
+    realtek8111_download
+    applealc_download
+    usbinjectall_download
     ls
 }
 
-virtualsmc_download
+main
