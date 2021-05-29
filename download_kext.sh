@@ -28,7 +28,7 @@ lilu_download() {
 
 realtek8111_download() {
     FULL_KEXT_NAME="Mieze/RTL8111_driver_for_OS_X"
-    KEXT_NAME="RTL8111_driver_for_OS_X"
+    KEXT_NAME="RealtekRTL8111"
     download_kext_gh
 }
 
@@ -38,11 +38,11 @@ applealc_download() {
     download_kext_gh
 }
 
-#usbinjectall_download() {
-#    echo Downloading RehabMan-USBInjectAll-2018-1108.zip
-#    curl -# -L -O "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip" || exit 1
-#    unzip -qq "RehabMan-USBInjectAll-2018-1108.zip" || exit 1
-#}
+usbinjectall_download() {
+    echo Downloading RehabMan-USBInjectAll-2018-1108.zip
+    curl -# -L -O "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip" || exit 1
+    unzip -qq "RehabMan-USBInjectAll-2018-1108.zip" || exit 1
+}
 
 main(){
     mkdir DownloadedKexts
@@ -52,7 +52,7 @@ main(){
     lilu_download
     realtek8111_download
     applealc_download
-    #usbinjectall_download
+    usbinjectall_download
     ls
 }
 
