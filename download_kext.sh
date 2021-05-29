@@ -12,11 +12,12 @@ virtualsmc_download () {
     FULL_KEXT_NAME="acidanthera/VirtualSMC"
     KEXT_NAME="VirtualSMC"
     download_kext_gh
-    cp -R Kexts/VirtualSMC.kext EFI/OC/Kexts/VirtualSMC.kext
-    cp -R Kexts/SMCProcessor.kext EFI/OC/Kexts/SMCProcessor.kext
-    cp -R Kexts/SMCSuperIO.kext EFI/OC/Kexts/SMCSuperIO.kext
+    cp -R Kexts/VirtualSMC.kext ./EFI/OC/Kexts/VirtualSMC.kext
+    cp -R Kexts/SMCProcessor.kext ./EFI/OC/Kexts/SMCProcessor.kext
+    cp -R Kexts/SMCSuperIO.kext ./EFI/OC/Kexts/SMCSuperIO.kext
     rm -rf Kexts/
-    cd EFI/OC/Kexts
+    ls
+    cd ./EFI/OC/Kexts
     ls
 }
 
