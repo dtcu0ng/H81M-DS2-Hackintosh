@@ -8,10 +8,10 @@ download_kext () {
     unzip -qq "$kext_name-$TAG-RELEASE.zip" || exit 1
 }
 
-full_kext_name = "acidanthera/VirtualSMC"
-kext_name = "VirtualSMC"
+export full_kext_name = "acidanthera/VirtualSMC"
+export kext_name = "VirtualSMC"
 download_kext
 
-full_kext_name = "acidanthera/WhateverGreen"
-kext_name = "WhateverGreen"
+export full_kext_name = "acidanthera/WhateverGreen"
+export kext_name = "WhateverGreen"
 download_kext
