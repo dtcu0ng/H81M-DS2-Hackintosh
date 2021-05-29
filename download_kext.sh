@@ -19,3 +19,5 @@ virtualsmc_download () {
     cd /EFI/OC/Kexts/
     ls
 }
+
+virtualsmc_download
