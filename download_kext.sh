@@ -15,3 +15,5 @@ download_kext
 FULL_KEXT_NAME="acidanthera/WhateverGreen"
 KEXT_NAME="WhateverGreen"
 download_kext
+
+ls #print out what happended
