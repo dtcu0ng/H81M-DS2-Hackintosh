@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  make-oc-all:
+  make-oc-release:
     name: Make EFIs
     runs-on: macos-latest
     steps:
@@ -18,6 +18,17 @@ jobs:
         run: |
           chmod +x ./scripts/download_kext_release.sh && ./scripts/download_kext_release.sh
 
+      - name: Compress EFI (release)
+        run: |
+          zip -r EFI_RELEASE.zip EFI/
+
+  make-oc-debug:
+    name: Make EFIs (debug)
+    needs: make-oc-release
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
       - name: Make EFI (debug)
         run: |
           chmod +x ./scripts/download_oc_debug.sh && ./scripts/download_oc_debug.sh
@@ -25,6 +36,23 @@ jobs:
       - name: Download kext (all debug)
         run: |
           chmod +x ./scripts/download_kext_debug.sh && ./scripts/download_kext_debug.sh
+
+      - name: Compress EFI (debug)
+        run: |
+          zip -r EFI_DEBUG.zip EFI/
+
+  upload-artifact:
+    name: Upload EFIs artifact (All)
+    needs: make-oc-debug
+    runs-on: macos-latest
+    steps:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: OC_EFI_GA-H81M-DS2
+          path: |
+            EFI_RELEASE.zip
+            EFI_DEBUG.zip
 
   analyze-oc-config:
     name: Analyze config

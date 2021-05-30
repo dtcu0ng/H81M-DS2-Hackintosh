@@ -28,10 +28,8 @@ copy_stuff() {
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying OpenCore config...
     cp config/config.plist EFI/OC
-    echo Downloading HFS driver..
-    curl -# -L -O "https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi" || exit 1
     echo Copying HFS driver...
-    cp HfsPlus.efi EFI/OC/Drivers
+    cp Drivers/HfsPlus.efi EFI/OC/Drivers
 }
 
 cleanup() {
@@ -41,7 +39,6 @@ cleanup() {
     rm -r Utilities
     rm -r X64
     rm OpenCore-$TAG-$TARGET.zip
-    rm HfsPlus.efi
 }
 
 main() {
