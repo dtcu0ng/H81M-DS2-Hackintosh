@@ -12,7 +12,7 @@ jobs:
 
       - name: Make EFI (release)
         run: |
-          chmod +x ./scripts/make_oc_release.sh && ./scripts/make_oc_release.sh
+          chmod +x ./scripts/download_oc_release.sh && ./scripts/download_oc_release.sh
 
       - name: Download kext (all release)
         run: |
@@ -20,7 +20,7 @@ jobs:
 
       - name: Make EFI (debug)
         run: |
-          chmod +x ./scripts/make_oc_debug.sh && ./scripts/make_oc_debug.sh
+          chmod +x ./scripts/download_oc_debug.sh && ./scripts/download_oc_debug.sh
 
       - name: Download kext (all debug)
         run: |
