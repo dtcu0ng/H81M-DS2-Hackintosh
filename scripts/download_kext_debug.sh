@@ -1,6 +1,6 @@
 #!/bin/bash
 prepare() {
-    TARGET="DEBUG"
+    TARGET="Debug"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 }
