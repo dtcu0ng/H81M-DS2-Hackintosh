@@ -1,6 +1,7 @@
 #!/bin/bash
 prepare() {
-    TARGET="Release"
+    cd ..
+    TARGET="DEBUG"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 }
@@ -43,11 +44,11 @@ realtek8111_download() {
     FULL_KEXT_NAME="Mieze/RTL8111_driver_for_OS_X"
     KEXT_NAME="RealtekRTL8111"
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$FULL_KEXT_NAME/releases/latest)
-    TAG="${RELEASE_URL##*/}"
-    url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_NAME-V$TAG.zip
-    echo Downloading $KEXT_NAME v$TAG
+    RTLTAG="${RELEASE_URL##*/}"
+    url=https://github.com/$FULL_KEXT_NAME/releases/download/$RTLTAG/$KEXT_NAME-V$RTLTAG.zip
+    echo Downloading $KEXT_NAME v$RTLTAG
     curl -# -L -O "${url}" || exit 1
-    unzip -qq "$KEXT_NAME-V$TAG.zip" || exit 1
+    unzip -qq "$KEXT_NAME-V$RTLTAG.zip" || exit 1
 }
 
 applealc_download() {
@@ -72,7 +73,7 @@ copy_kext() {
     cp -R DownloadedKexts/WhateverGreen.kext EFI/OC/Kexts/WhateverGreen.kext
     cp -R DownloadedKexts/Lilu.kext EFI/OC/Kexts/Lilu.kext
     cp -R DownloadedKexts/$TARGET/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
-    cp -R DownloadedKexts/RealtekRTL8111/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
+    cp -R DownloadedKexts/RealtekRTL8111-V$RTLTAG/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
 cleanup() {

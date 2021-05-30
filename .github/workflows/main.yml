@@ -4,19 +4,27 @@ on:
   push:
 
 jobs:
-  build-efi:
-    name: Build EFI
+  make-oc-all:
+    name: Make EFIs
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build EFI
+      - name: Make EFI (release)
         run: |
-          chmod +x ./download_oc.sh && ./download_oc.sh
+          chmod +x ./scripts/make_oc_release.sh && ./scripts/make_oc_release.sh
 
-      - name: Download kext
+      - name: Download kext (all release)
         run: |
-          chmod +x ./download_kext.sh && ./download_kext.sh
+          chmod +x ./scripts/download_kext_release.sh && ./scripts/download_kext_release.sh
+
+      - name: Make EFI (debug)
+        run: |
+          chmod +x ./scripts/make_oc_debug.sh && ./scripts/make_oc_debug.sh
+
+      - name: Download kext (all debug)
+        run: |
+          chmod +x ./scripts/download_kext_debug.sh && ./scripts/download_kext_debug.sh
 
   analyze-oc-config:
     name: Analyze config

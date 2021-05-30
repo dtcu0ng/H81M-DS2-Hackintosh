@@ -1,5 +1,6 @@
 #!/bin/bash
-download_OC() {
+download_bootloader() {
+    cd ..
     rm -rf EFI
     TARGET="RELEASE"
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
@@ -11,6 +12,7 @@ download_OC() {
 }
 
 make_efi() {
+    echo Making standard OpenCore EFI folder...
     cd X64/EFI/OC
     cd Drivers
     find . ! -name OpenRuntime.efi -delete
@@ -21,21 +23,29 @@ make_efi() {
 }
 
 copy_stuff() {
+    echo Copying SSDTs...
     cp ACPI/SSDT-EC.aml EFI/OC/ACPI
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
+    echo Copying OpenCore config...
     cp config/config.plist EFI/OC
+    echo Downloading HFS driver..
+    curl -# -L -O "https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi" || exit 1
+    echo Copying HFS driver...
+    cp HfsPlus.efi EFI/OC/Drivers
 }
 
 cleanup() {
+    echo Cleaning up...
     rm -r Docs
     rm -r IA32
     rm -r Utilities
     rm -r X64
     rm OpenCore-$TAG-$TARGET.zip
+    rm HfsPlus.efi
 }
 
 main() {
-    download_OC
+    download_bootloader
     make_efi
     copy_stuff
     cleanup
