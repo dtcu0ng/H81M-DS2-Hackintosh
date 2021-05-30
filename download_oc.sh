@@ -1,10 +1,11 @@
 #!/bin/bash
 download_OC() {
     rm -rf EFI
-    TARGET="Release"
+    TARGET="RELEASE"
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
     TAG="${RELEASE_URL##*/}"
     url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-$TARGET.zip
+    echo Downloading OpenCore $TAG $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
 }

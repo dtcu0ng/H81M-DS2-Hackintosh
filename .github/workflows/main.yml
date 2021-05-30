@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-efi:
-    name: Download kexts
+    name: Build EFI
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
