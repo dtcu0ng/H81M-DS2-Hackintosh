@@ -11,26 +11,34 @@ download_OC() {
 }
 
 make_efi() {
-    cd OpenCore-$TAG-$TARGET
     cd X64/EFI/OC
     cd Drivers
     find . ! -name OpenRuntime.efi -delete
     cd ../Tools
     find . ! -name OpenShell.efi -delete
-    cd ../../../../..
-    cp -R OpenCore-$TAG-$TARGET/X64/EFI EFI
+    cd ../../../..
+    cp -R X64/EFI EFI
 }
 
 copy_stuff() {
     cp ACPI/SSDT-EC.aml EFI/OC/ACPI
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
-    cp configs/$TAG/config.plist EFI/OC
+    cp config/config.plist EFI/OC
+}
+
+cleanup() {
+    rm -r Docs
+    rm -r IA32
+    rm -r Utilities
+    rm -r X64
+    rm OpenCore-$TAG-$TARGET.zip
 }
 
 main() {
     download_OC
     make_efi
     copy_stuff
+    cleanup
 }
 
 main

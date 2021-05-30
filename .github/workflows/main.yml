@@ -36,4 +36,4 @@ jobs:
           
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./EFI/OC/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/config.plist || exit 1
