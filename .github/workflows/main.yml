@@ -1,11 +1,10 @@
 name: CI
-# based on https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/main/.github/workflows/main.yml
 on:
   push:
 
 jobs:
   make-oc-release:
-    name: Make EFIs
+    name: Make EFI (all release)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +28,7 @@ jobs:
           path: EFI_RELEASE.zip
 
   make-oc-debug:
-    name: Make EFIs (debug)
+    name: Make EFI (all debug)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
