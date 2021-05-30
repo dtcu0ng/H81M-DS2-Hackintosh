@@ -18,15 +18,11 @@ jobs:
         run: |
           chmod +x ./scripts/download_kext_release.sh && ./scripts/download_kext_release.sh
 
-      - name: Compress EFI (release)
-        run: |
-          zip -r EFI_RELEASE.zip EFI/
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: EFI_RELEASE
-          path: EFI_RELEASE.zip
+          path: EFI/
 
   make-oc-debug:
     name: Make EFI (all debug)
@@ -42,15 +38,11 @@ jobs:
         run: |
           chmod +x ./scripts/download_kext_debug.sh && ./scripts/download_kext_debug.sh
 
-      - name: Compress EFI (debug)
-        run: |
-          zip -r EFI_DEBUG.zip EFI/
-
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: EFI_DEBUG
-          path: EFI_DEBUG.zip
+          path: EFI/
 
   analyze-oc-config:
     name: Analyze config
