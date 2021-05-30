@@ -1,6 +1,5 @@
 #!/bin/bash
 prepare() {
-    cd ..
     TARGET="RELEASE"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts

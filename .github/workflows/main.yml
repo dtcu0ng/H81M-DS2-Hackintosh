@@ -22,9 +22,14 @@ jobs:
         run: |
           zip -r EFI_RELEASE.zip EFI/
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: EFI_RELEASE
+          path: EFI_RELEASE.zip
+
   make-oc-debug:
     name: Make EFIs (debug)
-    needs: make-oc-release
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -41,18 +46,11 @@ jobs:
         run: |
           zip -r EFI_DEBUG.zip EFI/
 
-  upload-artifact:
-    name: Upload EFIs artifact (All)
-    needs: make-oc-debug
-    runs-on: macos-latest
-    steps:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: OC_EFI_GA-H81M-DS2
-          path: |
-            EFI_RELEASE.zip
-            EFI_DEBUG.zip
+          name: EFI_DEBUG
+          path: EFI_DEBUG.zip
 
   analyze-oc-config:
     name: Analyze config

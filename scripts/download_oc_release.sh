@@ -22,7 +22,6 @@ make_efi() {
 }
 
 copy_stuff() {
-    ls
     echo Copying SSDTs...
     cp ACPI/SSDT-EC.aml EFI/OC/ACPI
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
