@@ -44,9 +44,10 @@ realtek8111_download() {
     KEXT_NAME="RealtekRTL8111"
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$FULL_KEXT_NAME/releases/latest)
     TAG="${RELEASE_URL##*/}"
-    KEXT_FILENAME="RealtekRTL8111-V$TAG"
-    url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_FILENAME.zip
+    url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_NAME-V$TAG.zip
     echo Downloading $KEXT_NAME v$TAG
+    curl -# -L -O "${url}" || exit 1
+    unzip -qq "$KEXT_NAME-V$TAG.zip" || exit 1
 }
 
 applealc_download() {
