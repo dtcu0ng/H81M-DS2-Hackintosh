@@ -4,11 +4,15 @@ on:
   push:
 
 jobs:
-  download-kexts:
+  build-efi:
     name: Download kexts
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Build EFI
+        run: |
+          chmod +x ./download_oc.sh && ./download_oc.sh
 
       - name: Download kext
         run: |
