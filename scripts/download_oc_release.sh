@@ -18,7 +18,7 @@ make_efi() {
     find . ! -name OpenRuntime.efi -delete
     cd ../Tools
     find . ! -name OpenShell.efi -delete
-    cd ../../../..
+    cd ../../..
     cp -R X64/EFI EFI
 }
 
