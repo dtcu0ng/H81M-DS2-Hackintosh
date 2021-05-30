@@ -1,6 +1,5 @@
 #!/bin/bash
 download_bootloader() {
-    cd ..
     rm -rf EFI
     TARGET="RELEASE"
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
@@ -18,7 +17,7 @@ make_efi() {
     find . ! -name OpenRuntime.efi -delete
     cd ../Tools
     find . ! -name OpenShell.efi -delete
-    cd ../../..
+    cd ../../../..
     cp -R X64/EFI EFI
 }
 
