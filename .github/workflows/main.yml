@@ -1,9 +1,56 @@
 name: CI
-# based on https://github.com/daliansky/XiaoMi-Pro-Hackintosh/blob/main/.github/workflows/main.yml
 on:
   push:
 
 jobs:
+  make-oc-release:
+    name: Make EFI (all release)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make EFI (release)
+        run: |
+          chmod +x ./scripts/download_oc_release.sh && ./scripts/download_oc_release.sh
+
+      - name: Download kext (all release)
+        run: |
+          chmod +x ./scripts/download_kext_release.sh && ./scripts/download_kext_release.sh
+
+      - name: Compress EFI (release)
+        run: |
+          zip -r EFI_RELEASE.zip EFI/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: EFI_RELEASE
+          path: EFI_RELEASE.zip
+
+  make-oc-debug:
+    name: Make EFI (all debug)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make EFI (debug)
+        run: |
+          chmod +x ./scripts/download_oc_debug.sh && ./scripts/download_oc_debug.sh
+
+      - name: Download kext (all debug)
+        run: |
+          chmod +x ./scripts/download_kext_debug.sh && ./scripts/download_kext_debug.sh
+
+      - name: Compress EFI (debug)
+        run: |
+          zip -r EFI_DEBUG.zip EFI/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: EFI_DEBUG
+          path: EFI_DEBUG.zip
+
   analyze-oc-config:
     name: Analyze config
     runs-on: macos-latest
@@ -22,4 +69,4 @@ jobs:
           
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./EFI/OC/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/config.plist || exit 1
