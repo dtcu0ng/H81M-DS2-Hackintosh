@@ -6,7 +6,7 @@ on:
 jobs:
   make-oc-release:
     name: Make EFI (all release)
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -26,7 +26,7 @@ jobs:
 
   make-oc-debug:
     name: Make EFI (all debug)
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -46,7 +46,7 @@ jobs:
 
   analyze-oc-config:
     name: Analyze config
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       
@@ -62,4 +62,4 @@ jobs:
           
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate.linux ./config/config.plist || exit 1
