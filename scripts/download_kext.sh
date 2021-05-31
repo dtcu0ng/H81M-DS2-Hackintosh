@@ -1,11 +1,16 @@
 #!/bin/bash
+# TODO: use variable to download kexts
 prepare() {
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 }
-download_kext_gh() {
+
+fetch_github_tag(){ # now this is useless, but it will be useful later...
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$FULL_KEXT_NAME/releases/latest)
     TAG="${RELEASE_URL##*/}"
+}
+
+download_kext_gh() {
     url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_NAME-$TAG-$TARGET.zip
     echo Downloading $KEXT_NAME v$TAG
     curl -# -L -O "${url}" || exit 1
@@ -25,27 +30,29 @@ download_kext_gh_custom() {  # for custom kexts are not have filename formatted 
 virtualsmc_download() {
     FULL_KEXT_NAME="acidanthera/VirtualSMC"
     KEXT_NAME="VirtualSMC"
+    fetch_github_tag
     download_kext_gh
 }
 
 whatevergreen_download() {
     FULL_KEXT_NAME="acidanthera/WhateverGreen"
     KEXT_NAME="WhateverGreen"
+    fetch_github_tag
     download_kext_gh
 }
 
 lilu_download() {
     FULL_KEXT_NAME="acidanthera/lilu"
     KEXT_NAME="Lilu"
+    fetch_github_tag
     download_kext_gh
 }
 
-realtek8111_download() {
+realtek8111_download() { # hard worked to get this work, i know i'm noob, stfu
     FULL_KEXT_NAME="Mieze/RTL8111_driver_for_OS_X"
     KEXT_NAME="RealtekRTL8111"
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$FULL_KEXT_NAME/releases/latest)
-    RTLTAG="${RELEASE_URL##*/}"
-    TAG=$RTLTAG
+    fetch_github_tag
+    RTLTAG=$TAG # we need this to copy kext, cuz extracted of this file are very different.
     KEXT_FILENAME=$KEXT_NAME-V$TAG
     url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_FILENAME.zip
     download_kext_gh_custom
@@ -54,14 +61,15 @@ realtek8111_download() {
 applealc_download() {
     FULL_KEXT_NAME="acidanthera/AppleALC"
     KEXT_NAME="AppleALC"
+    fetch_github_tag
     download_kext_gh
 }
 
-usbinjectall_download() {
+usbinjectall_download() { # manually update, because releases of this kext are outside GitHub, and it's not updated for almost 3yrs
     url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
     KEXT_NAME="USBInjectAll"
     KEXT_FILENAME="RehabMan-USBInjectAll-2018-1108"
-    TAG="2018-1108"
+    TAG="2018-1108" #this is not necessary, but i added TAG variable for write it to installed_compoments.txt
     download_kext_gh_custom
 }
 
