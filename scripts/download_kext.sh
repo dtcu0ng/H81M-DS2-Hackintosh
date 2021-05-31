@@ -1,8 +1,6 @@
 #!/bin/bash
 prepare() {
-    TARGET="Release"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
-    echo "Installed kexts in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> ../EFI/OC/installed_kext.txt
     cd DownloadedKexts
 }
 download_kext_gh() {
@@ -69,6 +67,7 @@ usbinjectall_download() {
 
 copy_kext() {
     cd ..
+    echo Copying kexts...
     cp -R DownloadedKexts/Kexts/VirtualSMC.kext EFI/OC/Kexts/VirtualSMC.kext
     cp -R DownloadedKexts/Kexts/SMCProcessor.kext EFI/OC/Kexts/SMCProcessor.kext
     cp -R DownloadedKexts/Kexts/SMCSuperIO.kext EFI/OC/Kexts/SMCSuperIO.kext
@@ -80,6 +79,7 @@ copy_kext() {
 }
 
 cleanup() {
+    echo Cleaning up...
     rm -r DownloadedKexts
 }
 

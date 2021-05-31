@@ -1,14 +1,14 @@
 #!/bin/bash
 download_bootloader() {
+    echo Cleaning up current EFI...
     rm -rf EFI
-    TARGET="RELEASE"
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
     TAG="${RELEASE_URL##*/}"
     url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-$TARGET.zip
     echo Downloading OpenCore $TAG $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
-    echo "Installed OpenCore version $TAG ($TARGET) in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA" >> installed_compoments.txt
+    echo "Installed OpenCore version $TAG ($TARGET) and kexts in CI#$GITHUB_RUN_NUMBER for commit: $GITHUB_SHA:\n" >> installed_compoments.txt
 }
 
 make_efi() {
