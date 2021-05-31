@@ -2,7 +2,7 @@
 prepare() {
     TARGET="Release"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
-    echo "Installed kexts in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> ./EFI/OC/installed_kext.txt
+    echo "Installed kexts in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> ../EFI/OC/installed_kext.txt
     cd DownloadedKexts
 }
 download_kext_gh() {
@@ -13,7 +13,7 @@ download_kext_gh() {
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$KEXT_NAME-$TAG-$TARGET.zip" || exit 1
     rm "$KEXT_NAME-$TAG-$TARGET.zip" # clean up
-    echo "$KEXT_NAME ($TARGET) version $TAG" >> ./EFI/OC/installed_compoments.txt
+    echo "$KEXT_NAME ($TARGET) version $TAG" >> ../EFI/OC/installed_compoments.txt
 }
 
 download_kext_gh_custom() {  # for custom kexts are not have filename formatted with $KEXT_NAME-$TAG-$TARGET.zip or outside GitHub
@@ -21,7 +21,7 @@ download_kext_gh_custom() {  # for custom kexts are not have filename formatted 
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$KEXT_FILENAME.zip" || exit 1
     rm "$KEXT_FILENAME.zip"
-    echo "$KEXT_NAME ($TARGET) version $TAG" >> ./EFI/OC/installed_compoments.txt
+    echo "$KEXT_NAME ($TARGET) version $TAG" >> ../EFI/OC/installed_compoments.txt
 }
 
 virtualsmc_download() {
