@@ -2,7 +2,7 @@
 prepare() {
     TARGET="Release"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
-    echo "Installed kexts in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> EFI/OC/installed_kext.txt
+    echo "Installed kexts in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> ./EFI/OC/installed_kext.txt
     cd DownloadedKexts
 }
 download_kext_gh() {
