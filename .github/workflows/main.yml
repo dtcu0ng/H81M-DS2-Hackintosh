@@ -6,7 +6,7 @@ on:
 jobs:
   make-oc-release:
     name: Make EFI (all release)
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -17,7 +17,7 @@ jobs:
 
       - name: Download kext (all release)
         run: |
-          export TARGET=Release
+          export TARGET=RELEASE
           chmod +x ./scripts/download_kext.sh && ./scripts/download_kext.sh
 
       - name: Upload artifacts
@@ -28,7 +28,7 @@ jobs:
 
   make-oc-debug:
     name: Make EFI (all debug)
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -39,7 +39,7 @@ jobs:
 
       - name: Download kext (all debug)
         run: |
-          export TARGET=Debug
+          export TARGET=DEBUG
           chmod +x ./scripts/download_kext.sh && ./scripts/download_kext.sh
 
       - name: Upload artifacts
@@ -50,7 +50,7 @@ jobs:
 
   analyze-oc-config:
     name: Analyze config
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       
