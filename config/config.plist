@@ -122,8 +122,7 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>XHC1 to SHCI
-</string>
+				<string>XHC1 to SHCI</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
