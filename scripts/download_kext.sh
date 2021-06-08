@@ -11,15 +11,12 @@ fetch_github_tag(){ # now this is useless, but it will be useful later...
 }
 
 download_kext_gh() {
-    fetch_github_tag
-    #notes: $1: repository
-    #       $2: kext
-    url=https://github.com/$1/releases/download/$TAG/$2-$TAG-$TARGET.zip
-    echo Downloading $2 v$TAG
+    url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_NAME-$TAG-$TARGET.zip
+    echo Downloading $KEXT_NAME v$TAG
     curl -# -L -O "${url}" || exit 1
-    unzip -qq "$2-$TAG-$TARGET.zip" || exit 1
-    rm "$2-$TAG-$TARGET.zip" # clean up
-    echo "$2 ($TARGET) version $TAG" >> ../EFI/OC/installed_compoments.txt
+    unzip -qq "$KEXT_NAME-$TAG-$TARGET.zip" || exit 1
+    rm "$KEXT_NAME-$TAG-$TARGET.zip" # clean up
+    echo "$KEXT_NAME ($TARGET) version $TAG" >> ../EFI/OC/installed_compoments.txt
 }
 
 download_kext_gh_custom() {  # for custom kexts are not have filename formatted with $KEXT_NAME-$TAG-$TARGET.zip or outside GitHub
@@ -30,10 +27,25 @@ download_kext_gh_custom() {  # for custom kexts are not have filename formatted 
     echo "$KEXT_NAME ($TARGET) version $TAG" >> ../EFI/OC/installed_compoments.txt
 }
 
-all_haswell_kexts() {
-    download_kext_gh "acidanthera/VirtualSMC" "VirtualSMC"
-    download_kext_gh "acidanthera/WhateverGreen" "WhateverGreen"
-    download_kext_gh "acidanthera/AppleALC" "AppleALC"
+virtualsmc_download() {
+    FULL_KEXT_NAME="acidanthera/VirtualSMC"
+    KEXT_NAME="VirtualSMC"
+    fetch_github_tag
+    download_kext_gh
+}
+
+whatevergreen_download() {
+    FULL_KEXT_NAME="acidanthera/WhateverGreen"
+    KEXT_NAME="WhateverGreen"
+    fetch_github_tag
+    download_kext_gh
+}
+
+lilu_download() {
+    FULL_KEXT_NAME="acidanthera/lilu"
+    KEXT_NAME="Lilu"
+    fetch_github_tag
+    download_kext_gh
 }
 
 realtek8111_download() { # hard worked to get this work, i know i'm noob, stfu
@@ -44,6 +56,13 @@ realtek8111_download() { # hard worked to get this work, i know i'm noob, stfu
     KEXT_FILENAME=$KEXT_NAME-V$TAG
     url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_FILENAME.zip
     download_kext_gh_custom
+}
+
+applealc_download() {
+    FULL_KEXT_NAME="acidanthera/AppleALC"
+    KEXT_NAME="AppleALC"
+    fetch_github_tag
+    download_kext_gh
 }
 
 usbinjectall_download() { # manually update, because releases of this kext are outside GitHub, and it's not updated for almost 3yrs
