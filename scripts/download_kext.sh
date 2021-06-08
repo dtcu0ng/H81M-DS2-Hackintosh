@@ -66,11 +66,11 @@ applealc_download() {
 }
 
 usbinjectall_download() { # manually update, because releases of this kext are outside GitHub, and it's not updated for almost 3yrs
-    url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
+    FULL_KEXT_NAME="Sniki/OS-X-USB-Inject-All"
     KEXT_NAME="USBInjectAll"
-    KEXT_FILENAME="RehabMan-USBInjectAll-2018-1108"
-    TAG="2018-1108" #this is not necessary, but i added TAG variable for write it to installed_compoments.txt
-    download_kext_gh_custom
+    fetch_github_tag
+    download_kext_gh
+    ls
 }
 
 copy_kext() {
@@ -82,7 +82,7 @@ copy_kext() {
     cp -R DownloadedKexts/AppleALC.kext EFI/OC/Kexts/AppleALC.kext
     cp -R DownloadedKexts/WhateverGreen.kext EFI/OC/Kexts/WhateverGreen.kext
     cp -R DownloadedKexts/Lilu.kext EFI/OC/Kexts/Lilu.kext
-    cp -R DownloadedKexts/$TARGET/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
+    cp -R DownloadedKexts/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
     cp -R DownloadedKexts/RealtekRTL8111-V$RTLTAG/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
