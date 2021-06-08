@@ -66,4 +66,4 @@ jobs:
           
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate.linux ./config/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/config.plist || exit 1
