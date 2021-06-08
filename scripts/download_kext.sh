@@ -66,12 +66,13 @@ applealc_download() {
 }
 
 usbinjectall_download() { # manually update, because releases of this kext are outside GitHub, and it's not updated for almost 3yrs
-    FULL_KEXT_NAME="Sniki/OS-X-USB-Inject-All"
+    url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
     KEXT_NAME="USBInjectAll"
-    fetch_github_tag
-    download_kext_gh
-    ls
+    KEXT_FILENAME="RehabMan-USBInjectAll-2018-1108"
+    TAG="2018-1108" #this is not necessary, but i added TAG variable for write it to installed_compoments.txt
+    download_kext_gh_custom
 }
+
 
 copy_kext() {
     cd ..
