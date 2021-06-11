@@ -12,16 +12,17 @@ jobs:
 
       - name: Prepare (release)
         run: |
-          export TARGET=RELEASE
           chmod +x ./scripts/download_oc.sh
           chmod +x ./scripts/download_kext.sh
           
       - name: Make EFI (release)
         run: |
+         export TARGET=RELEASE
          ./scripts/download_oc.sh
 
       - name: Download kext (all release)
         run: |
+          export TARGET=RELEASE
           ./scripts/download_kext.sh
 
       - name: Upload artifacts
@@ -38,16 +39,17 @@ jobs:
       
       - name: Prepare (debug)
         run: |
-          export TARGET=DEBUG
           chmod +x ./scripts/download_oc.sh
           chmod +x ./scripts/download_kext.sh
 
       - name: Make EFI (debug)
         run: |
+         export TARGET=DEBUG
          ./scripts/download_oc.sh
 
       - name: Download kext (all debug)
         run: |
+          export TARGET=DEBUG
           ./scripts/download_kext.sh
 
       - name: Upload artifacts
