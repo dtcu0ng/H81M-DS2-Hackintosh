@@ -83,7 +83,7 @@ copy_kext() {
     cp -R DownloadedKexts/AppleALC.kext EFI/OC/Kexts/AppleALC.kext
     cp -R DownloadedKexts/WhateverGreen.kext EFI/OC/Kexts/WhateverGreen.kext
     cp -R DownloadedKexts/Lilu.kext EFI/OC/Kexts/Lilu.kext
-    cp -R DownloadedKexts/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
+    cp -R DownloadedKexts/$TARGET/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
     cp -R DownloadedKexts/RealtekRTL8111-V$RTLTAG/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
