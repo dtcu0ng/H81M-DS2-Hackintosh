@@ -10,15 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Make EFI (release)
+      - name: Prepare (release)
         run: |
           export TARGET=RELEASE
-          chmod +x ./scripts/download_oc.sh && ./scripts/download_oc.sh
+          chmod +x ./scripts/download_oc.sh
+          chmod +x ./scripts/download_kext.sh
+          
+      - name: Make EFI (release)
+        run: |
+         ./scripts/download_oc.sh
 
       - name: Download kext (all release)
         run: |
-          export TARGET=RELEASE
-          chmod +x ./scripts/download_kext.sh && ./scripts/download_kext.sh
+          ./scripts/download_kext.sh
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
@@ -31,16 +35,20 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Prepare (debug)
+        run: |
+          export TARGET=DEBUG
+          chmod +x ./scripts/download_oc.sh
+          chmod +x ./scripts/download_kext.sh
 
       - name: Make EFI (debug)
         run: |
-          export TARGET=DEBUG
-          chmod +x ./scripts/download_oc.sh && ./scripts/download_oc.sh
+         ./scripts/download_oc.sh
 
       - name: Download kext (all debug)
         run: |
-          export TARGET=DEBUG
-          chmod +x ./scripts/download_kext.sh && ./scripts/download_kext.sh
+          ./scripts/download_kext.sh
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
