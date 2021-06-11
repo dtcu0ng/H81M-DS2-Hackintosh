@@ -9,7 +9,7 @@ English | [Vietnamese](README_vi.md)
 | Current installed  | OS(es) |
 | ------------- | ------------- |
 | ✅  | Windows 10  |
-| ✅  | macOS Big Sur |
+| ✅  | macOS Monterey |
 
 # My PC specification
 
@@ -26,20 +26,23 @@ English | [Vietnamese](README_vi.md)
 
 | Windows  | macOS |
 | ------------- | ------------- |
-| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac.png "System specfication")  |
+| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac_monterery.png "System specfication")  |
 
 # This specification was run
 
 | Status  | Operating System & Version |
 | ------------- | ------------- |
-| ✅  | Latest Windows 10 build  |
+| ✅  | Windows 10  |
+| ✅  | macOS Monterey Beta 1* |
 | ✅  | macOS Big Sur  |
-| ✅  | macOS Big Sur Beta 5  |
 | ✅  | macOS Catalina |
 | ✅  | macOS Mojave  |
 | ✅  | macOS High Sierra  |
 | ✅  | macOS Sierra  |
 | ✅  | Mac OS X El Captain  |
+
+Notes:
+(*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU), iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
 
 # What is working
 | Status  | Functions: |
