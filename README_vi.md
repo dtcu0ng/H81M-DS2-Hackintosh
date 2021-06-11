@@ -9,7 +9,7 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | Đang chạy  | (các) hệ điều hành |
 | ------------- | ------------- |
 | ✅  | Windows 10  |
-| ✅  | macOS Big Sur |
+| ✅  | macOS Monterey |
 
 # Cấu hình PC của mình:
 
@@ -26,20 +26,23 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 
 | Windows  | macOS |
 | ------------- | ------------- |
-| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac.png "System specfication")  |
+| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac_monterey.png "System specfication")  |
 
 # Cấu hình này đã chạy
 
 | Trạng thái | Hệ điều hành & phiên bản |
 | ------------- | ------------- |
 | ✅  | Windows 10  |
-| ✅  | macOS Big Sur  |
-| ✅  | macOS Big Sur Beta 5  |
+| ✅  | macOS Monterey Beta 1* |
+| ✅  | macOS Big Sur |
 | ✅  | macOS Catalina |
 | ✅  | macOS Mojave  |
 | ✅  | macOS High Sierra  |
 | ✅  | macOS Sierra  |
 | ✅  | Mac OS X El Captain  |
+
+Lưu ý:
+(*): macOS 12 (Monterey) không hỗ trợ SMBIOS iMac15,1 trở xuống, vì vậy hãy dùng SMBIOS iMac16,1 (nếu bạn không sử dụng iGPU) hoặc iMac17,1 (nếu bạn sử dụng dGPU) và thêm -lilubetaall vào boot-args.
 
 # Những thứ đang hoạt động
 | Tình trạng  | Chức năng: |

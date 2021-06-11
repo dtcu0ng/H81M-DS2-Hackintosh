@@ -26,7 +26,7 @@ English | [Vietnamese](README_vi.md)
 
 | Windows  | macOS |
 | ------------- | ------------- |
-| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac_monterery.png "System specfication")  |
+| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac_monterey.png "System specfication")  |
 
 # This specification was run
 
@@ -42,7 +42,7 @@ English | [Vietnamese](README_vi.md)
 | ✅  | Mac OS X El Captain  |
 
 Notes:
-(*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU), iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
+(*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
 
 # What is working
 | Status  | Functions: |
