@@ -1,8 +1,10 @@
 #!/bin/bash
 # TODO: use variable to download kexts
 prepare() {
+    [ ! -d "H81M-DS2-EFI" ] && mkdir H81M-DS2-EFI
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
+
 }
 
 fetch_github_tag(){ # now this is useless, but it will be useful later...
@@ -87,6 +89,10 @@ copy_kext() {
     cp -R DownloadedKexts/RealtekRTL8111-V$RTLTAG/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
+laststep() {
+    mv EFI/* H81M-DS2-EFI/
+}
+
 cleanup() {
     echo Cleaning up...
     rm -r DownloadedKexts
@@ -103,6 +109,7 @@ main(){
     usbinjectall_download
     copy_kext
     cleanup
+    laststep
 }
 
 main
