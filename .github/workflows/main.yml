@@ -28,7 +28,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: EFI_RELEASE
+          name: H81M-DS2-EFI_release
           path: H81M-DS2-EFI/
 
   make-oc-debug:
@@ -55,7 +55,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: EFI_DEBUG
+          name: H81M-DS2-EFI_debug
           path: H81M-DS2-EFI/
 
   analyze-oc-config:
