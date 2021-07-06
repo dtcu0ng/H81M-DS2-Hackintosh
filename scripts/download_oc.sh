@@ -27,7 +27,9 @@ copy_stuff() {
     cp ACPI/SSDT-EC.aml EFI/OC/ACPI
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying OpenCore config...
+    cp config/config_igpu.plist EFI/OC
     cp config/config.plist EFI/OC
+    cp config/CONFIG_README.txt EFI/OC
     echo Copying HFS driver...
     cp Drivers/HfsPlus.efi EFI/OC/Drivers
     cp installed_compoments.txt EFI/OC
