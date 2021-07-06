@@ -2,6 +2,7 @@
 # TODO: use variable to download kexts
 prepare() {
     [ ! -d "H81M-DS2-EFI" ] && mkdir H81M-DS2-EFI
+    [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir H81M-DS2-EFI/EFI
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 
@@ -90,7 +91,7 @@ copy_kext() {
 }
 
 laststep() {
-    mv EFI/* H81M-DS2-EFI/
+    mv EFI/* H81M-DS2-EFI/EFI/
 }
 
 cleanup() {
