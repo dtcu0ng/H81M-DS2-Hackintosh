@@ -58,14 +58,13 @@ Lưu ý:
 
 Ghi chú: 
 (*): GT730 (Kepler) được hỗ trợ trực tiếp bởi Apple trong các phiên bản Mojave, Catalina, Big Sur.
+(***): Nếu Bootcamp không hoạt động trên PC của bạn, có thể bạn phải ấn F12 để chọn boot.
 
 # Không hoạt động
 | Tình trạng  | Chức năng: |
 | ------------- | ------------- |
 | ❌  | iMessages, Facetime  |
 
-Ghi chú:
-(***): Nếu Bootcamp không hoạt động trên PC của bạn, có thể bạn phải ấn F12 để chọn boot.
 
 # Hướng dẫn cho các CPU dòng Pentium, Celeron
 + Bởi vì macOS không hỗ trợ các dòng CPU Pentium, Celeron nên chúng ta cần phải làm một số thủ thuật và thay đổi để lừa macOS rằng nó đang chạy trên một CPU thích hợp (các dòng Core i, Xeon)
