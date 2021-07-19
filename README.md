@@ -87,7 +87,7 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 # How to download EFI:
 | DON'T use this  | Use this | And this |
 | ------------- | ------------- | ------------- |
-| images/dont_use_this_to_download.png  | images/use_this.png | and_this.png |
+| ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/use_this.png "and this") |
 
 # Post-install:
 + (Only High Sierra) If you have NVIDIA graphics card (except RTX(s), GTX 16xx, GTX 15xx), use this terminal command to install Web driver
