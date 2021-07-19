@@ -55,7 +55,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: H81M-DS2-EFI_%TAG%_%TARGET%
+          name: H81M-DS2-EFI_$TAG_$TARGET
           path: H81M-DS2-EFI/
 
   analyze-oc-config:

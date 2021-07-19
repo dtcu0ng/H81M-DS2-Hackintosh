@@ -84,7 +84,7 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 # Cách để tải EFI xuống:
 | KHÔNG dùng cách này  | Dùng cách này | Và thế này |
 | ------------- | ------------- | ------------- |
-| ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/use_this.png "and this") |
+| ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
 
 # Chú thích
 + Nếu bạn sử dụng card đồ hoạ GT730 2GB GDDR5 từ Gigabyte giống mình, bạn nên thêm agdpmod=pikera trong boot-arg. Việc này sẽ sửa vấn đề nháy đen màn hình.
