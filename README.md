@@ -27,7 +27,7 @@ English | [Vietnamese](README_vi.md)
 
 | Windows  | macOS |
 | ------------- | ------------- |
-| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac_monterey.png "System specfication")  |
+| ![dxdiag windows spec](images/systeminfo_win.png "System specfication") | ![hackintool spec](images/systeminfo_mac_monterey.png "System specfication")  |
 
 # This specification was run
 
@@ -83,6 +83,11 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 
 # Notes
 + If you use GT730 2GB GDDR5 from Gigabyte like me, you should add agdpmod=pikera in boot-arg. That fix screen flash problem.
+
+# How to download EFI:
+| DON'T use this  | Use this | And this |
+| ------------- | ------------- | ------------- |
+| images/dont_use_this_to_download.png  | images/use_this.png | and_this.png |
 
 # Post-install:
 + (Only High Sierra) If you have NVIDIA graphics card (except RTX(s), GTX 16xx, GTX 15xx), use this terminal command to install Web driver

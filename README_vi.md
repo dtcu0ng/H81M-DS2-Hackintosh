@@ -26,7 +26,7 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 
 | Windows  | macOS |
 | ------------- | ------------- |
-| ![dxdiag windows spec](systeminfo_win.png "System specfication") | ![hackintool spec](systeminfo_mac_monterey.png "System specfication")  |
+| ![dxdiag windows spec](images/systeminfo_win.png "System specfication") | ![hackintool spec](images/systeminfo_mac_monterey.png "System specfication")  |
 
 # Cấu hình này đã chạy
 
@@ -80,6 +80,11 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 + Thay thế HFSPlus.efi sang [HFSPlusLegacy.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlusLegacy.efi)
 + Đừng quên sử dụng chức năng OC Snapshot trong ProperTree khi bạn vừa làm việc với các tệp tin (kext, driver, ACPI,...)
 + Các hướng dẫn trên được mình tìm hiểu và thử nghiệm dựa trên bài đăng [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) này.
+
+# Cách để tải EFI xuống:
+| KHÔNG dùng cách này  | Dùng cách này | Và thế này |
+| ------------- | ------------- | ------------- |
+| images/dont_use_this_to_download.png  | images/use_this.png | and_this.png |
 
 # Chú thích
 + Nếu bạn sử dụng card đồ hoạ GT730 2GB GDDR5 từ Gigabyte giống mình, bạn nên thêm agdpmod=pikera trong boot-arg. Việc này sẽ sửa vấn đề nháy đen màn hình.
