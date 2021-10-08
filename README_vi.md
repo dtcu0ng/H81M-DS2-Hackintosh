@@ -9,7 +9,7 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | Đang chạy  | (các) hệ điều hành |
 | ------------- | ------------- |
 | ✅  | Windows 10  |
-| ✅  | macOS Monterey |
+| ✅  | macOS Big Sur |
 
 # Cấu hình PC của mình:
 
@@ -18,11 +18,15 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | Bo mạch chủ | Gigabyte H81M-DS2 (rev3.0), BIOS version F3  |
 | CPU:  | Intel Core i3-4130 (Haswell, 3,40GHz, 2 core 4 thread)  |
 | RAM:  | 8GB (2x4GB)  |
-| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), hỗ trợ trực tiếp trên Mojave, Catalina, Big Sur. |
-| Ổ cứng:  | Netac SSD 128GB (đã cài macOS 11.3.1, WD Blue 256GB (đã cài Windows 10)  |
+| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), hỗ trợ trực tiếp trên Mojave, Catalina, Big Sur. (*) |
+| Ổ cứng:  | Netac SSD 128GB, WD Blue 256GB  |
 | Mạng: | Realtek RTL8111 |
 | Âm thanh:  | Realtek ALC887 (mình đang sử dụng layout-id là 3)  |
 | SMBIOS:  | iMac15,1  |
+
+Ghi chú: 
+
+(*): Apple đã dừng hỗ trợ cho các dòng card NVIDIA Kepler trên phiên bản macOS Monterey Beta 7, vì thế bạn nên cẩn trọng, đừng cập nhật lên Beta 7 nếu bạn đang ở phiên bản < Beta 6 hoặc quay lại các phiên bản cũ hơn như Big Sur hoặc Catalina.
 
 | Windows  | macOS |
 | ------------- | ------------- |
@@ -42,6 +46,7 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | ✅  | Mac OS X El Captain  |
 
 Lưu ý:
+
 (*): macOS 12 (Monterey) không hỗ trợ SMBIOS iMac15,1 trở xuống, vì vậy hãy dùng SMBIOS iMac16,1 (nếu bạn không sử dụng iGPU) hoặc iMac17,1 (nếu bạn sử dụng dGPU) và thêm -lilubetaall vào boot-args.
 
 # Những thứ đang hoạt động
@@ -54,11 +59,12 @@ Lưu ý:
 | ✅  | Card màn hình* |
 | ✅  | Intel QuickSync/Tăng tốc phần cứng |
 | ✅  | USB 2.0/3.0  |
-| ✅  | Bootcamp***  |
+| ✅  | Bootcamp**  |
 
 Ghi chú: 
+
 (*): GT730 (Kepler) được hỗ trợ trực tiếp bởi Apple trong các phiên bản Mojave, Catalina, Big Sur.
-(***): Nếu Bootcamp không hoạt động trên PC của bạn, có thể bạn phải ấn F12 để chọn boot.
+(**): Nếu Bootcamp không hoạt động trên PC của bạn, có thể bạn phải ấn F12 để chọn boot.
 
 # Không hoạt động
 | Tình trạng  | Chức năng: |
