@@ -10,7 +10,7 @@ English | [Vietnamese](README_vi.md)
 | Current installed  | OS(es) |
 | ------------- | ------------- |
 | ✅  | Windows 10  |
-| ✅  | macOS Monterey |
+| ✅  | macOS Big Sur |
 
 # My PC specification
 
@@ -19,11 +19,14 @@ English | [Vietnamese](README_vi.md)
 | Mainboard | Gigabyte H81M-DS2 (rev3.0), BIOS version F3  |
 | CPU:  | Intel Core i3-4130 (Haswell, 3,40GHz, 2 core 4 thread)  |
 | RAM:  | 8GB (2x4GB)  |
-| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. |
-| Disk:  | Netac SSD 128GB (macOS 11.3.1 installed, WD Blue 256GB (Windows 10 installed)  |
+| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. (*) |
+| Disk:  | Netac SSD 128GB, WD Blue 256GB  |
 | Network: | Realtek RTL8111 |
 | Sound:  | Realtek ALC887 (best layout-id in my build is 3)  |
 | SMBIOS:  | iMac15,1  |
+
+Notes:
+(*): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
 
 | Windows  | macOS |
 | ------------- | ------------- |
@@ -55,11 +58,11 @@ Notes:
 | ✅  | Graphics card* |
 | ✅  | Intel QuickSync/Hardware Acceleration |
 | ✅  | USB 2.0/3.0  |
-| ✅  | Bootcamp***  |
+| ✅  | Bootcamp** |
 
 Notes: 
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
-(***): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
+(**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
 # Not working
 | Status  | Functions: |
