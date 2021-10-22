@@ -5,57 +5,67 @@ on:
 
 jobs:
   make-oc-release:
-    name: Make EFI (all release)
+    name: Make EFI (release)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Prepare (release)
+      - name: Prepare
         run: |
           chmod +x ./scripts/download_oc.sh
           chmod +x ./scripts/download_kext.sh
           
-      - name: Make EFI (release)
+      - name: Make EFI
         run: |
          export TARGET=RELEASE
          ./scripts/download_oc.sh
 
-      - name: Download kext (all release)
+      - name: Download kext
         run: |
           export TARGET=RELEASE
           ./scripts/download_kext.sh
 
+      - name: Patch Github branch name
+        run: |
+          echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+        id: ref
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: H81M-DS2-EFI_${{ github.head_ref }}_RELEASE
+          name: H81M-DS2-EFI_${{ steps.ref.outputs.branch }}_RELEASE
           path: H81M-DS2-EFI/
 
   make-oc-debug:
-    name: Make EFI (all debug)
+    name: Make EFI (debug)
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       
-      - name: Prepare (debug)
+      - name: Prepare
         run: |
           chmod +x ./scripts/download_oc.sh
           chmod +x ./scripts/download_kext.sh
 
-      - name: Make EFI (debug)
+      - name: Make EFI
         run: |
          export TARGET=DEBUG
          ./scripts/download_oc.sh
 
-      - name: Download kext (all debug)
+      - name: Download kext
         run: |
           export TARGET=DEBUG
           ./scripts/download_kext.sh
+        
+      - name: Patch Github branch name
+        run: |
+          echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+        id: ref
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: H81M-DS2-EFI_${{ github.head_ref }}_DEBUG
+          name: H81M-DS2-EFI_${{ steps.ref.outputs.branch }}_DEBUG
           path: H81M-DS2-EFI/
 
   analyze-oc-config:
