@@ -4,6 +4,7 @@ download_bootloader() {
     rm -rf EFI
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
     TAG="${RELEASE_URL##*/}"
+    echo "::set-output name=octag::${TAG}"
     url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-$TARGET.zip
     echo Downloading OpenCore $TAG $TARGET
     curl -# -L -O "${url}" || exit 1
