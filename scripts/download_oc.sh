@@ -1,6 +1,9 @@
 #!/bin/bash
 check_input() {
-    if [ "TARGET" == "DEBUG" || "TARGET" == "RELEASE" ]; then
+    if [ "TARGET" == "DEBUG" ]; then
+        echo Found valid target: $TARGET
+        echo "::set-output name=buildtarget::${TARGET}"
+    elif [ "TARGET" == "RELEASE" ]; then
         echo Found valid target: $TARGET
         echo "::set-output name=buildtarget::${TARGET}"
     else
