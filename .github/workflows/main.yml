@@ -19,21 +19,13 @@ jobs:
         run: |
          export TARGET=RELEASE
          ./scripts/download_oc.sh
-
-      - name: Download kext
-        run: |
-          export TARGET=RELEASE
-          ./scripts/download_kext.sh
-
-      - name: Patch Github branch name
-        run: |
-          echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-        id: ref
+         ./scripts/download_kext.sh
+        id: ocversion
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: H81M-DS2-EFI_${{ steps.ref.outputs.branch }}_RELEASE
+          name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
           path: H81M-DS2-EFI/
 
   make-oc-debug:
@@ -51,21 +43,13 @@ jobs:
         run: |
          export TARGET=DEBUG
          ./scripts/download_oc.sh
-
-      - name: Download kext
-        run: |
-          export TARGET=DEBUG
-          ./scripts/download_kext.sh
-        
-      - name: Patch Github branch name
-        run: |
-          echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-        id: ref
+         ./scripts/download_kext.sh
+        id: ocversion
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: H81M-DS2-EFI_${{ steps.ref.outputs.branch }}_DEBUG
+          name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
           path: H81M-DS2-EFI/
 
   analyze-oc-config:
