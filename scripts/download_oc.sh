@@ -1,7 +1,18 @@
 #!/bin/bash
+check_input() {
+    if [ "TARGET" == "DEBUG" || "TARGET" == "RELEASE" ]; then
+        echo Found valid target: $TARGET
+        echo "::set-output name=buildtarget::${TARGET}"
+    else
+        echo Unvaild target: $TARGET
+        exit 1
+}
+
 download_bootloader() {
     echo Cleaning up current EFI...
+    rm -rf H81M-DS2-EFI
     rm -rf EFI
+    rm -rf DownloadedKexts
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
     TAG="${RELEASE_URL##*/}"
     echo "::set-output name=octag::${TAG}"
@@ -46,6 +57,7 @@ cleanup() {
 }
 
 main() {
+    check_input
     download_bootloader
     make_efi
     copy_stuff
