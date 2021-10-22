@@ -6,6 +6,7 @@ check_input() {
     else
         echo Unvaild target: $TARGET
         exit 1
+    fi
 }
 
 download_bootloader() {
