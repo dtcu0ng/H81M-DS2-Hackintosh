@@ -42,13 +42,22 @@ copy_stuff() {
     echo Copying SSDTs...
     cp ACPI/SSDT-EC.aml EFI/OC/ACPI
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
-    echo Copying OpenCore config...
-    cp config/config_igpu.plist EFI/OC
-    cp config/config.plist EFI/OC
-    cp config/CONFIG_README.txt EFI/OC
     echo Copying HFS driver...
     cp Drivers/HfsPlus.efi EFI/OC/Drivers
     cp installed_compoments.txt EFI/OC
+}
+
+copy_config(){
+    if [ -d "config/$TAG" ]; then
+        echo Copying OpenCore config...
+        cp config/$TAG/config_igpu.plist EFI/OC
+        cp config/$TAG/config.plist EFI/OC
+        cp config/CONFIG_README.txt EFI/OC
+    else
+        echo "No config for this version ($TAG) present."
+        echo "No file copied."
+        exit 1
+    fi
 }
 
 cleanup() {
@@ -65,6 +74,7 @@ main() {
     download_bootloader
     make_efi
     copy_stuff
+    copy_config
     cleanup
 }
 
