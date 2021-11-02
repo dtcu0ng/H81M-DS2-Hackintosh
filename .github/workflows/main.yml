@@ -70,5 +70,5 @@ jobs:
           
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/config.plist || exit 1
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/config_igpu.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${TAG}/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${TAG}/config_igpu.plist || exit 1
