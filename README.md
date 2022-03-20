@@ -17,7 +17,7 @@ English | [Vietnamese](README_vi.md)
 | Part  | Info |
 | ------------- | ------------- |
 | Mainboard | Gigabyte H81M-DS2 (rev3.0), BIOS version F3  |
-| CPU:  | Intel Core i3-4130 (Haswell, 3,40GHz, 2 core 4 thread)  |
+| CPU:  | Intel Xeon E3-1220 v3 (Haswell, 3,10 GHZ up to 3,50GHz, 4 core 4 thread)  |
 | RAM:  | 8GB (2x4GB)  |
 | GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. (*) |
 | Disk:  | Netac SSD 128GB, WD Blue 256GB  |
