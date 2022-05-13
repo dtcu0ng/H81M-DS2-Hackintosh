@@ -12,14 +12,14 @@ jobs:
 
       - name: Prepare
         run: |
-          chmod +x ./scripts/download_oc.sh
-          chmod +x ./scripts/download_kext.sh
+          chmod +x ./scripts/build_oc.sh
+          chmod +x ./scripts/build_kext.sh
           
       - name: Make EFI
         run: |
          export TARGET=RELEASE
-         ./scripts/download_oc.sh
-         ./scripts/download_kext.sh
+         ./scripts/build_oc.sh
+         ./scripts/build_kext.sh
         id: ocversion
 
       - name: Upload artifacts
@@ -36,14 +36,14 @@ jobs:
       
       - name: Prepare
         run: |
-          chmod +x ./scripts/download_oc.sh
-          chmod +x ./scripts/download_kext.sh
+          chmod +x ./scripts/build_oc.sh
+          chmod +x ./scripts/build_kext.sh
 
       - name: Make EFI
         run: |
          export TARGET=DEBUG
-         ./scripts/download_oc.sh
-         ./scripts/download_kext.sh
+         ./scripts/build_oc.sh
+         ./scripts/build_kext.sh
         id: ocversion
 
       - name: Upload artifacts
