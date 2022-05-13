@@ -30,7 +30,7 @@ Notes:
 
 | Windows  | macOS |
 | ------------- | ------------- |
-| ![dxdiag windows spec](images/systeminfo_win.png "System specfication") | ![hackintool spec](images/systeminfo_mac_monterey.png "System specfication")  |
+| ![dxdiag windows spec](images/systeminfo_win.png "System specfication") | ![hackintool spec](images/systeminfo_mac.png "System specfication")  |
 
 # This specification was run
 
