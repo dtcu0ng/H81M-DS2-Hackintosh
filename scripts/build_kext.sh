@@ -1,5 +1,6 @@
 #!/bin/bash
-# TODO: use variable to download kexts
+
+# TODO: use json to store kext name & info
 prepare() {
     [ ! -d "H81M-DS2-EFI" ] && mkdir H81M-DS2-EFI
     [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir H81M-DS2-EFI/EFI
