@@ -10,7 +10,7 @@ English | [Vietnamese](README_vi.md)
 | Current installed  | OS(es) |
 | ------------- | ------------- |
 | ✅  | Windows 10  |
-| ✅  | macOS Big Sur |
+| ✅  | macOS Catalina |
 
 # My PC specification
 
@@ -25,8 +25,6 @@ English | [Vietnamese](README_vi.md)
 | Sound:  | Realtek ALC887 (best layout-id in my build is 3)  |
 | SMBIOS:  | iMac15,1  |
 
-Notes:
-(*): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
 
 | Windows  | macOS |
 | ------------- | ------------- |
@@ -48,6 +46,8 @@ Notes:
 Notes:
 (*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
 
+(*): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
+
 # What is working
 | Status  | Functions: |
 | ------------- | ------------- |
@@ -64,28 +64,23 @@ Notes:
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
 (**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
-# Not working
-| Status  | Functions: |
-| ------------- | ------------- |
-| ❌  | iMessages, Facetime,...  |
-
 # Guide for Low-end CPUs (Pentium, Celeron)
 + Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
 
 Tutorial:
 + In your config.plist, goto Kernel > Emulate add these data into require value
 ```
-CpuidData: A9060300 00000000 00000000 00000000
-CpuidMask: FFFFFFFF 00000000 00000000 00000000
+Cpuid1Data: A9060300 00000000 00000000 00000000
+Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 ```
-+ Enable Kernel > DummyPowerManagement
-+ Disable NVRAM > WriteFlash
++ Set Kernel > Emulate > DummyPowerManagement to Enabled/True
++ Set NVRAM > WriteFlash to Disabled/False
 + Replace HFSPlus.efi to [HFSPlusLegacy.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlusLegacy.efi)
 + Don't forget to take an OC Snapshot in ProperTree after you work with files!
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
 # Notes
-+ If you use GT730 2GB GDDR5 from Gigabyte like me, you should add agdpmod=pikera in boot-arg. That fix screen flash problem.
++ You may have screen flickering sometimes, add agdpmod=pikera in boot-arg may fix it. 
 
 # How to download EFI:
 | DON'T use this  | Use this | And this |
@@ -93,7 +88,7 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 | ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
 
 # Post-install:
-+ (Only High Sierra) If you have NVIDIA graphics card (except RTX(s), GTX 16xx, GTX 15xx), use this terminal command to install Web driver
++ (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
 
 ```
 bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)
@@ -101,7 +96,7 @@ bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/m
 Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](https://github.com/Benjamin-Dobell/nvidia-update/) to learn more.
 + (Only High Sierra) I installed CUDA driver too, get this in [here](https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/)
 
-# Credit
+# Thanks
 + [hackintosh.vn](https://hackintosh.vn) for Vietnamese guides
 + [Olarila](https://olarila.com) for English guides, configs
 + [Benjamin-Dobell](https://github.com/Benjamin-Dobell/) for NVIDIA Web scripts
