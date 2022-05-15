@@ -85,7 +85,7 @@ Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 | ------------- | ------------- | ------------- |
 | ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
 
-## Post-install
+## Additional
 + (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
 
 ```
