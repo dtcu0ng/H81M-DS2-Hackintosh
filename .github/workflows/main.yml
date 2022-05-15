@@ -11,12 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Prepare
+      - name: Make script executable
         run: |
           chmod +x ./scripts/build_oc.sh
           chmod +x ./scripts/build_kext.sh
           
-      - name: Make EFI
+      - name: Make full EFI
         run: |
          export TARGET=RELEASE
          ./scripts/build_oc.sh
@@ -35,12 +35,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Prepare
+      - name: Make script executable
         run: |
           chmod +x ./scripts/build_oc.sh
           chmod +x ./scripts/build_kext.sh
 
-      - name: Make EFI
+      - name: Make full EFI
         run: |
          export TARGET=DEBUG
          ./scripts/build_oc.sh
