@@ -10,6 +10,15 @@ English | [Vietnamese](README_vi.md)
 - [x] Windows 10
 - [x] macOS Catalina
 
+## Sections:
+[PC specification](#pc-specification)
+[Compatible with](#compatible-with)
+[What is working](#what-is-working)
+[Guide for low-ends CPUs](#guide-for-low-end-cpus)
+[How to correctly download EFI](#how-to-download-efi)
+[Additional](#additional)
+[Thanks](#thanks)
+
 ## PC specification
 
 | Part  | Info |
@@ -65,7 +74,7 @@ Notes:
 
 (**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
-## Guide for Low-end CPUs
+## Guide for low-end CPUs
 + Because macOS don't support low-end CPUs like Pentium, Celeron, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
 
 Tutorial:
