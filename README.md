@@ -1,4 +1,4 @@
-# H81M-DS2-HackintoshEFI
+## H81M-DS2-HackintoshEFI
 
 OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0).
 
@@ -12,7 +12,7 @@ English | [Vietnamese](README_vi.md)
 | ✅  | Windows 10  |
 | ✅  | macOS Catalina |
 
-# My PC specification
+## My PC specification
 
 | Part  | Info |
 | ------------- | ------------- |
@@ -30,7 +30,7 @@ English | [Vietnamese](README_vi.md)
 | ------------- | ------------- |
 | ![dxdiag windows spec](images/systeminfo_win.png "System specfication") | ![hackintool spec](images/systeminfo_mac.png "System specfication")  |
 
-# This specification was run
+## This specification was run
 
 | Status  | Operating System & Version |
 | ------------- | ------------- |
@@ -48,7 +48,7 @@ Notes:
 
 (*): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
 
-# What is working
+## What is working
 | Status  | Functions: |
 | ------------- | ------------- |
 | ✅  | Microphone (pink jack input)  |
@@ -62,9 +62,10 @@ Notes:
 
 Notes: 
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
+(*): You may have screen flickering sometimes, add agdpmod=pikera in boot-arg may fix it. 
 (**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
-# Guide for Low-end CPUs (Pentium, Celeron)
+## Guide for Low-end CPUs (Pentium, Celeron)
 + Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
 
 Tutorial:
@@ -79,15 +80,12 @@ Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 + Don't forget to take an OC Snapshot in ProperTree after you work with files!
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
-# Notes
-+ You may have screen flickering sometimes, add agdpmod=pikera in boot-arg may fix it. 
-
-# How to download EFI:
+## How to download EFI:
 | DON'T use this  | Use this | And this |
 | ------------- | ------------- | ------------- |
 | ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
 
-# Post-install:
+## Post-install:
 + (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
 
 ```
@@ -96,7 +94,7 @@ bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/m
 Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](https://github.com/Benjamin-Dobell/nvidia-update/) to learn more.
 + (Only High Sierra) I installed CUDA driver too, get this in [here](https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/)
 
-# Thanks
+## Thanks
 + [hackintosh.vn](https://hackintosh.vn) for Vietnamese guides
 + [Olarila](https://olarila.com) for English guides, configs
 + [Benjamin-Dobell](https://github.com/Benjamin-Dobell/) for NVIDIA Web scripts
