@@ -1,4 +1,4 @@
-## H81M-DS2-HackintoshEFI
+## H81M-DS2-Hackintosh
 
 OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0).
 
