@@ -55,7 +55,7 @@ Notes:
 - [x] Intel QuickSync/Hardware Acceleration
 - [x] USB 2.0/3.0
 - [x] Bootcamp**
-- [] You tell me.
+- [ ] You tell me.
 
 Notes: 
 
