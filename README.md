@@ -81,7 +81,9 @@ Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
 ## How to download EFI
-+ To download the latest EFI, simply click the download badge on the very first lines of README. If you don't want to scroll up, I've bring it down to here for you. [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
++ To download the latest EFI, simply click the download badge on the very first lines of README. If you don't want to scroll up, I've bring it down here for you. [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
+
+Here is another way you can correctly download the EFI:
 
 | DON'T use this  | Use this | And this |
 | ------------- | ------------- | ------------- |
