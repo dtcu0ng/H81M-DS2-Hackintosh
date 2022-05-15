@@ -12,6 +12,9 @@ English | [Vietnamese](README_vi.md)
 | ✅  | Windows 10  |
 | ✅  | macOS Catalina |
 
+- [x] Windows 10
+- [x] macOS Catalina
+
 ## My PC specification
 
 | Part  | Info |
@@ -43,6 +46,15 @@ English | [Vietnamese](README_vi.md)
 | ✅  | macOS Sierra  |
 | ✅  | Mac OS X El Captain  |
 
+- [x] Windows 10
+- [x] macOS Monterey Beta 1*
+- [x] macOS Big Sur
+- [x] macOS Catalina
+- [x] macOS Mojave
+- [x] macOS High Sierra
+- [x] macOS Sierra
+- [x] Mac OS X El Captain
+
 Notes:
 (*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
 
@@ -59,6 +71,15 @@ Notes:
 | ✅  | Intel QuickSync/Hardware Acceleration |
 | ✅  | USB 2.0/3.0  |
 | ✅  | Bootcamp** |
+
+- [x] Microphone (pink jack input)
+- [x] Speaker (green jack input)
+- [x] Ethernet (en0)
+- [x] Services (App Store, Apple Music,...)
+- [x] Graphics card*
+- [x] Intel QuickSync/Hardware Acceleration
+- [x] USB 2.0/3.0
+- [x] Bootcamp**
 
 Notes: 
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
