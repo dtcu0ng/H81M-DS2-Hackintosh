@@ -7,15 +7,10 @@ OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0).
 
 English | [Vietnamese](README_vi.md)
 
-| Current installed  | OS(es) |
-| ------------- | ------------- |
-| ✅  | Windows 10  |
-| ✅  | macOS Catalina |
-
 - [x] Windows 10
 - [x] macOS Catalina
 
-## My PC specification
+## PC specification
 
 | Part  | Info |
 | ------------- | ------------- |
@@ -33,18 +28,7 @@ English | [Vietnamese](README_vi.md)
 | ------------- | ------------- |
 | ![dxdiag windows spec](images/systeminfo_win.png "System specfication") | ![hackintool spec](images/systeminfo_mac.png "System specfication")  |
 
-## This specification was run
-
-| Status  | Operating System & Version |
-| ------------- | ------------- |
-| ✅  | Windows 10  |
-| ✅  | macOS Monterey Beta 1* |
-| ✅  | macOS Big Sur  |
-| ✅  | macOS Catalina |
-| ✅  | macOS Mojave  |
-| ✅  | macOS High Sierra  |
-| ✅  | macOS Sierra  |
-| ✅  | Mac OS X El Captain  |
+## Compatible with
 
 - [x] Windows 10
 - [x] macOS Monterey Beta 1*
@@ -56,21 +40,12 @@ English | [Vietnamese](README_vi.md)
 - [x] Mac OS X El Captain
 
 Notes:
+
 (*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
 
 (*): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
 
 ## What is working
-| Status  | Functions: |
-| ------------- | ------------- |
-| ✅  | Microphone (pink jack input)  |
-| ✅  | Speaker (green jack input)  |
-| ✅  | Ethernet (en0)  |
-| ✅  | Services (App Store, Apple Music,...) |
-| ✅  | Graphics card* |
-| ✅  | Intel QuickSync/Hardware Acceleration |
-| ✅  | USB 2.0/3.0  |
-| ✅  | Bootcamp** |
 
 - [x] Microphone (pink jack input)
 - [x] Speaker (green jack input)
@@ -80,8 +55,10 @@ Notes:
 - [x] Intel QuickSync/Hardware Acceleration
 - [x] USB 2.0/3.0
 - [x] Bootcamp**
+- [] You tell me.
 
 Notes: 
+
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
 
 (*): You may have screen flickering sometimes, add agdpmod=pikera in boot-arg may fix it. 
@@ -103,12 +80,12 @@ Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 + Don't forget to take an OC Snapshot in ProperTree after you work with files!
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
-## How to download EFI:
+## How to download EFI
 | DON'T use this  | Use this | And this |
 | ------------- | ------------- | ------------- |
 | ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
 
-## Post-install:
+## Post-install
 + (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
 
 ```
