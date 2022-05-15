@@ -65,11 +65,11 @@ Notes:
 
 (**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
-## Guide for Low-end CPUs (Pentium, Celeron)
-+ Because macOS don't support Pentium, Celeron CPUs, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
+## Guide for Low-end CPUs
++ Because macOS don't support low-end CPUs like Pentium, Celeron, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
 
 Tutorial:
-+ In your config.plist, goto Kernel > Emulate add these data into require value
++ In your config.plist, goto Kernel > Emulate add these data into required value
 ```
 Cpuid1Data: A9060300 00000000 00000000 00000000
 Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
@@ -81,6 +81,8 @@ Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
 ## How to download EFI
++ To download the latest EFI, simply click the download badge on the very first lines of README. If you don't want to scroll up, I've bring it down to here for you. [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
+
 | DON'T use this  | Use this | And this |
 | ------------- | ------------- | ------------- |
 | ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
