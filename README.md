@@ -83,7 +83,9 @@ Notes:
 
 Notes: 
 (*): GT730 (Kepler) is natively support in Catalina, other NVIDIA card please check before install Mojave or above.
+
 (*): You may have screen flickering sometimes, add agdpmod=pikera in boot-arg may fix it. 
+
 (**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
 ## Guide for Low-end CPUs (Pentium, Celeron)
