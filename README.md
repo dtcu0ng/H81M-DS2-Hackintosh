@@ -12,11 +12,17 @@ English | [Vietnamese](README_vi.md)
 
 ## Sections:
 [PC specification](#pc-specification)
+
 [Compatible with](#compatible-with)
+
 [What is working](#what-is-working)
+
 [Guide for low-ends CPUs](#guide-for-low-end-cpus)
+
 [How to correctly download EFI](#how-to-download-efi)
+
 [Additional](#additional)
+
 [Thanks](#thanks)
 
 ## PC specification
