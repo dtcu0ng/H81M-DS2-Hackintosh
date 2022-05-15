@@ -1,8 +1,8 @@
 name: CI
 on:
   push:
+  pull_request:
   workflow_dispatch:
-  pull-request:
 
 jobs:
   make-oc-release:
