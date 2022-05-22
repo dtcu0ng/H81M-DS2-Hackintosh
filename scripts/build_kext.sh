@@ -20,7 +20,7 @@ download_kext_gh() {
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$KEXT_NAME-$TAG-$TARGET.zip" || exit 1
     rm "$KEXT_NAME-$TAG-$TARGET.zip" # clean up
-    echo "+ $KEXT_NAME @ $TAG" >> ../FI/OC/installed_compoments.txt
+    echo "+ $KEXT_NAME @ $TAG" >> ../EFI/OC/installed_compoments.txt
 }
 
 download_kext_gh_custom() {  # for custom kexts are not have filename formatted with $KEXT_NAME-$TAG-$TARGET.zip or outside GitHub
