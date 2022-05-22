@@ -10,17 +10,17 @@ prepare() {
 }
 
 fetch_github_tag(){ # now this is useless, but it will be useful later...
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$FULL_KEXT_NAME/releases/latest)
+    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$REPOSITORY/releases/latest)
     TAG="${RELEASE_URL##*/}"
 }
 
 download_kext_gh() {
-    url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_NAME-$TAG-$TARGET.zip
+    url=https://github.com/$REPOSITORY/releases/download/$TAG/$KEXT_NAME-$TAG-$TARGET.zip
     echo Downloading $KEXT_NAME v$TAG
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$KEXT_NAME-$TAG-$TARGET.zip" || exit 1
     rm "$KEXT_NAME-$TAG-$TARGET.zip" # clean up
-    echo "+ $KEXT_NAME @ $TAG" >> ../EFI/OC/installed_compoments.txt
+    echo "+ $KEXT_NAME @ $TAG" >> ../FI/OC/installed_compoments.txt
 }
 
 download_kext_gh_custom() {  # for custom kexts are not have filename formatted with $KEXT_NAME-$TAG-$TARGET.zip or outside GitHub
@@ -32,38 +32,38 @@ download_kext_gh_custom() {  # for custom kexts are not have filename formatted 
 }
 
 virtualsmc_download() {
-    FULL_KEXT_NAME="acidanthera/VirtualSMC"
+    REPOSITORY="acidanthera/VirtualSMC"
     KEXT_NAME="VirtualSMC"
     fetch_github_tag
     download_kext_gh
 }
 
 whatevergreen_download() {
-    FULL_KEXT_NAME="acidanthera/WhateverGreen"
+    REPOSITORY="acidanthera/WhateverGreen"
     KEXT_NAME="WhateverGreen"
     fetch_github_tag
     download_kext_gh
 }
 
 lilu_download() {
-    FULL_KEXT_NAME="acidanthera/lilu"
+    REPOSITORY="acidanthera/lilu"
     KEXT_NAME="Lilu"
     fetch_github_tag
     download_kext_gh
 }
 
 realtek8111_download() { # hard worked to get this work, i know i'm noob, stfu
-    FULL_KEXT_NAME="Mieze/RTL8111_driver_for_OS_X"
+    REPOSITORY="Mieze/RTL8111_driver_for_OS_X"
     KEXT_NAME="RealtekRTL8111"
     fetch_github_tag
     RTLTAG=$TAG # we need this to copy kext, cuz extracted of this file are very different.
     KEXT_FILENAME=$KEXT_NAME-V$TAG
-    url=https://github.com/$FULL_KEXT_NAME/releases/download/$TAG/$KEXT_FILENAME.zip
+    url=https://github.com/$REPOSITORY/releases/download/$TAG/$KEXT_FILENAME.zip
     download_kext_gh_custom
 }
 
 applealc_download() {
-    FULL_KEXT_NAME="acidanthera/AppleALC"
+    REPOSITORY="acidanthera/AppleALC"
     KEXT_NAME="AppleALC"
     fetch_github_tag
     download_kext_gh
