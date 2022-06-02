@@ -9,7 +9,7 @@ jobs:
     name: Make EFI (release)
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Make script executable
         run: |
@@ -24,7 +24,7 @@ jobs:
         id: ocversion
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
           path: H81M-DS2-EFI/
@@ -33,7 +33,7 @@ jobs:
     name: Make EFI (debug)
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Make script executable
         run: |
@@ -48,7 +48,7 @@ jobs:
         id: ocversion
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
           path: H81M-DS2-EFI/
@@ -57,7 +57,7 @@ jobs:
     name: Analyze config
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       - name: Install Dependency
         run: |
