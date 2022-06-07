@@ -73,5 +73,5 @@ jobs:
           
       - name: Run ocvalidate
         run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${{ steps.ocversion.outputs.octag }}/config.plist || echo ::error::An error occurred && exit 1
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${{ steps.ocversion.outputs.octag }}/config_igpu.plist || echo ::error::An error occurred && exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${{ steps.ocversion.outputs.octag }}/config.plist || exit 1
+          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${{ steps.ocversion.outputs.octag }}/config_igpu.plist || exit 1
