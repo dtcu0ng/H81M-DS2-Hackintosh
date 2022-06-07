@@ -31,9 +31,9 @@ make_efi() {
     echo Making standard OpenCore EFI folder...
     cd X64/EFI/OC
     cd Drivers
-    find . ! -name OpenRuntime.efi -delete
+    rm -v !("OpenRuntime.efi"|"ResetNvramEntry.efi") 
     cd ../Tools
-    find . ! -name OpenShell.efi -delete
+    rm -v !("OpenShell.efi") 
     cd ../../../..
     cp -R X64/EFI EFI
 }
@@ -55,7 +55,7 @@ copy_config(){
         cp config/CONFIG_README.txt EFI/OC
     else
         echo "[WARNING] No config for this version ($TAG) present."
-        echo "[WARNING] No file copied. You can't use this EFI unless there is a config present."
+        echo "[WARNING] No file copied. You can't use this EFI unless there is a config.plist present."
     fi
 }
 
