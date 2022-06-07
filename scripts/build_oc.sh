@@ -31,9 +31,9 @@ make_efi() {
     echo Making standard OpenCore EFI folder...
     cd X64/EFI/OC
     cd Drivers
-    rm -v !("OpenRuntime.efi"|"ResetNvramEntry.efi") 
+    find . ! -name 'OpenRuntime.efi' ! -name 'ResetNvramEntry.efi' ! -name "ToggleSipEntry.efi" -delete
     cd ../Tools
-    rm -v !("OpenShell.efi") 
+    find . ! -name 'OpenShell.efi' -delete
     cd ../../../..
     cp -R X64/EFI EFI
 }
