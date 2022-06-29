@@ -54,6 +54,7 @@ copy_config(){
         cp config/$TAG/config.plist EFI/OC
         cp config/CONFIG_README.txt EFI/OC
     else
+        echo "DO NOT USE THIS EFI BUILD UNLESS THERE ARE A COMPATIBLE CONFIG.PLIST PRESENT" >> EFI\OC\WARNING.txt
         echo "::warning::No config for this version ($TAG) present."
         echo "::warning::No file copied. You can't use this EFI unless there is a config.plist present."
     fi
