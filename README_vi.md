@@ -1,6 +1,6 @@
 ## H81M-DS2-Hackintosh
 
-[![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?label=t%E1%BA%A3i%20xu%E1%BB%91ng)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![Kiểm tra ocvalidate](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/workflows/CI/badge.svg)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions)
+[![Phiên bản mới nhất](https://img.shields.io/github/v/release/dtcu0ng/H81M-DS2-Hackintosh)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?label=t%E1%BA%A3i%20xu%E1%BB%91ng)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![Kiểm tra ocvalidate](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/workflows/CI/badge.svg)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions)
 
 [English](README) | Vietnamese
 
