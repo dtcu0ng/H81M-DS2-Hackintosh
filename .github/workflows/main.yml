@@ -13,14 +13,14 @@ jobs:
 
       - name: Make script executable
         run: |
-          chmod +x ./scripts/build_oc.sh
-          chmod +x ./scripts/build_kext.sh
+          chmod +x ./scripts/BuildOC.sh
+          chmod +x ./scripts/BuildKext.sh
           
       - name: Make full EFI
         run: |
          export TARGET=RELEASE
-         ./scripts/build_oc.sh
-         ./scripts/build_kext.sh
+         ./scripts/BuildOC.sh
+         ./scripts/BuildKext.sh
         id: ocversion
 
       - name: Upload artifacts
@@ -37,14 +37,14 @@ jobs:
       
       - name: Make script executable
         run: |
-          chmod +x ./scripts/build_oc.sh
-          chmod +x ./scripts/build_kext.sh
+          chmod +x ./scripts/BuildOC.sh
+          chmod +x ./scripts/BuildKext.sh
 
       - name: Make full EFI
         run: |
          export TARGET=DEBUG
-         ./scripts/build_oc.sh
-         ./scripts/build_kext.sh
+         ./scripts/BuildOC.sh
+         ./scripts/BuildKext.sh
         id: ocversion
 
       - name: Upload artifacts

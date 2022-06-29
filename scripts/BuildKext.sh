@@ -1,9 +1,25 @@
 #!/bin/bash
 
+#=========================DOWNLOAD OC KEXT=========================
+# Filename: BuildKext.sh
+# Version 22.6.29
+# https://github.com/dtcu0ng/H81M-DS2-Hackintosh
+#==================================================================
+
 # TODO: use json to store kext name & info
 prepare() {
-    [ ! -d "H81M-DS2-EFI" ] && mkdir H81M-DS2-EFI
-    [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir H81M-DS2-EFI/EFI
+    if [ ! -d "H81M-DS2-EFI" ]; then
+        echo "::warning::The EFI directory is not exist. This is abnormal. Please check the CI workflow again, make sure that BuildOC.sh is run before BuildKext.sh"
+        echo "::warning::Please be careful when using this EFI."
+        echo "Creating EFI directory..."
+        mkdir H81M-DS2-EFI
+    fi
+    if [ ! -d "H81M-DS2-EFI/EFI" ]; then
+        echo "::warning::The EFI directory is not exist. This is abnormal. Please check the CI workflow again, make sure that BuildOC.sh is run before BuildKext.sh"
+        echo "::warning::Please be careful when using this EFI."
+        echo "Creating EFI directory..."
+        mkdir H81M-DS2-EFI/EFI
+    fi
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 

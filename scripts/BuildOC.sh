@@ -1,4 +1,11 @@
 #!/bin/bash
+
+#=========================BUILD OC EFI=========================
+# Filename: BuildOC.sh
+# Version 22.6.29
+# https://github.com/dtcu0ng/H81M-DS2-Hackintosh
+#==============================================================
+
 check_input() {
     if [ "$TARGET" == "DEBUG" ]; then
         echo Found valid target: $TARGET
