@@ -36,6 +36,7 @@ download_bootloader() {
 
 make_efi() {
     echo Making standard OpenCore EFI folder...
+    mkdir H81M-DS2-EFI
     mkdir H81M-DS2-EFI/EFI
     cd X64/EFI/OC
     cd Drivers
