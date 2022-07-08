@@ -107,10 +107,6 @@ copy_kext() {
     cp -R DownloadedKexts/RealtekRTL8111-V$RTLTAG/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
-laststep() {
-    mv EFI/* H81M-DS2-EFI/EFI/
-}
-
 cleanup() {
     echo Cleaning up...
     rm -r DownloadedKexts
@@ -127,7 +123,6 @@ main(){
     usbinjectall_download
     copy_kext
     cleanup
-    laststep
 }
 
 main

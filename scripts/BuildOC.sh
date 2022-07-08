@@ -42,7 +42,7 @@ make_efi() {
     cd ../Tools
     find . ! -name 'OpenShell.efi' -delete
     cd ../../../..
-    cp -R X64/EFI EFI
+    cp -R X64/EFI H81M-DS2-EFI/EFI
 }
 
 copy_stuff() {
