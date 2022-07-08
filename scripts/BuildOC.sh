@@ -38,32 +38,32 @@ make_efi() {
     echo Making standard OpenCore EFI folder...
     mkdir H81M-DS2-EFI
     mkdir H81M-DS2-EFI/EFI
-    cd X64/EFI/OC
+    cd X64/ EFI/OC
     cd Drivers
     find . ! -name 'OpenRuntime.efi' ! -name 'ResetNvramEntry.efi' ! -name "ToggleSipEntry.efi" -delete
     cd ../Tools
     find . ! -name 'OpenShell.efi' -delete
     cd ../../../..
-    cp -R X64/EFI ./H81M-DS2-EFI/EFI
+    cp -R X64/EFI EFI
 }
 
 copy_stuff() {
     echo Copying SSDTs...
-    cp ACPI/SSDT-EC.aml ./H81M-DS2-EFI/EFI/OC/ACPI
-    cp ACPI/SSDT-PLUG.aml ./H81M-DS2-EFI/EFI/OC/ACPI
+    cp ACPI/SSDT-EC.aml EFI/OC/ACPI
+    cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying HFS driver...
-    cp Drivers/HfsPlus.efi ./H81M-DS2-EFI/EFI/OC/Drivers
-    cp installed_compoments.txt ./H81M-DS2-EFI/EFI/OC
+    cp Drivers/HfsPlus.efi EFI/OC/Drivers
+    cp installed_compoments.txt EFI/OC
 }
 
 copy_config(){
     if [ -d "config/$TAG" ]; then
         echo Copying OpenCore config...
-        cp config/$TAG/config_igpu.plist ./H81M-DS2-EFI/EFI/OC
-        cp config/$TAG/config.plist ./H81M-DS2-EFI/EFI/OC
-        cp config/CONFIG_README.txt ./H81M-DS2-EFI/EFI/OC
+        cp config/$TAG/config_igpu.plist EFI/OC
+        cp config/$TAG/config.plist EFI/OC
+        cp config/CONFIG_README.txt EFI/OC
     else
-        echo "DO NOT USE THIS EFI BUILD UNLESS THERE ARE A COMPATIBLE CONFIG.PLIST PRESENT" >> ./H81M-DS2-EFI/EFI/OC/WARNING.txt
+        echo "DO NOT USE THIS EFI BUILD UNLESS THERE ARE A COMPATIBLE CONFIG.PLIST PRESENT" >>  EFI/OC/WARNING.txt
         echo "::warning::No config for this version ($TAG) present."
         echo "::warning::No file copied. You can't use this EFI unless there is a config.plist present."
     fi
