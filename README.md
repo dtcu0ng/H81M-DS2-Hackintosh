@@ -90,7 +90,7 @@ Cpuid1Data: A9060300 00000000 00000000 00000000
 Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 ```
 + Set Kernel > Emulate > DummyPowerManagement to Enabled/True
-+ Set NVRAM > WriteFlash to Disabled/False
++ Set NVRAM > WriteFlash with Disabled/False
 + Replace HFSPlus.efi to [HFSPlusLegacy.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlusLegacy.efi)
 + Don't forget to take an OC Snapshot in ProperTree after you work with files!
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
