@@ -54,24 +54,13 @@ jobs:
           path: H81M-DS2-EFI/
 
   analyze-oc-config:
-    name: Analyze config
+    name: Compare sample & Analyze config
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       
-      - name: Install Dependency
-        run: |
-          mkdir "OpenCore" && cd "OpenCore" || exit 1
-          RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
-          TAG="${RELEASE_URL##*/}"
-          echo "::set-output name=octag::${TAG}"
-          url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-RELEASE.zip
-          curl -# -L -O "${url}" || exit 1
-          unzip -qq "*.zip" || exit 1
-          chmod +x Utilities/ocvalidate/ocvalidate || exit 1
-        id: ocversion
+      - name: Make script executable
+        run: chmod +x ./scripts/AnalyzeConfig.sh
           
-      - name: Run ocvalidate
-        run: |
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${{ steps.ocversion.outputs.octag }}/config.plist || exit 1
-          ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/${{ steps.ocversion.outputs.octag }}/config_igpu.plist || exit 1
+      - name: Compare sample & Analyze config
+        run: ./scripts/AnalyzeConfig.sh
