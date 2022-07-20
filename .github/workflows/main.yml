@@ -5,6 +5,54 @@ on:
   workflow_dispatch:
 
 jobs:
+  make-oc-release:
+    name: Make EFI (release)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Make script executable
+        run: |
+          chmod +x ./scripts/BuildOC.sh
+          chmod +x ./scripts/BuildKext.sh
+          
+      - name: Make full EFI
+        run: |
+         export TARGET=RELEASE
+         ./scripts/BuildOC.sh
+         ./scripts/BuildKext.sh
+        id: ocversion
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
+          path: H81M-DS2-EFI/
+
+  make-oc-debug:
+    name: Make EFI (debug)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Make script executable
+        run: |
+          chmod +x ./scripts/BuildOC.sh
+          chmod +x ./scripts/BuildKext.sh
+
+      - name: Make full EFI
+        run: |
+         export TARGET=DEBUG
+         ./scripts/BuildOC.sh
+         ./scripts/BuildKext.sh
+        id: ocversion
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
+          path: H81M-DS2-EFI/
+
   analyze-oc-config:
     name: Compare sample & Analyze config
     runs-on: macos-latest
