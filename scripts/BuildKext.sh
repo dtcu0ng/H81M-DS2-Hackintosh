@@ -8,18 +8,8 @@
 
 # TODO: use json to store kext name & info
 prepare() {
-    if [ ! -d "H81M-DS2-EFI" ]; then
-        echo "::warning::The EFI directory is not exist. This is abnormal. Please check the CI workflow again, make sure that BuildOC.sh is run before BuildKext.sh"
-        echo "::warning::Please be careful when using this EFI."
-        echo "Creating EFI directory..."
-        mkdir H81M-DS2-EFI
-    fi
-    if [ ! -d "H81M-DS2-EFI/EFI" ]; then
-        echo "::warning::The EFI directory is not exist. This is abnormal. Please check the CI workflow again, make sure that BuildOC.sh is run before BuildKext.sh"
-        echo "::warning::Please be careful when using this EFI."
-        echo "Creating EFI directory..."
-        mkdir H81M-DS2-EFI/EFI
-    fi
+    [ ! -d "H81M-DS2-EFI" ] && mkdir "H81M-DS2-EFI"
+    [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir "H81M-DS2-EFI/EFI"
     [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
     cd DownloadedKexts
 
