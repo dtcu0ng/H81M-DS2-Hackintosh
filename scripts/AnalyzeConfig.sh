@@ -15,7 +15,7 @@ CompareLocal() {
     TAG="${RELEASE_URL##*/}"
     echo Downloading latest OpenCore sample config...
     curl -# -L -O "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/$TAG/Docs/Sample.plist" || exit 1
-    mv "Sample.plist" "../config/Sample.plist"
+    mv "Sample.plist" "./config/Sample.plist"
     cd ..
     if [ -f "./config/SampleLocal.plist" ]; then
         if [ -f "./config/Sample.plist" ]; then
