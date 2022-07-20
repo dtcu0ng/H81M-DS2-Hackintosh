@@ -1,4 +1,9 @@
-# mac crap
+# macOS crap
 DS_Store
 .DS_Store
 .contentFlavour
+
+# test script
+test.sh
+OpenCore/*
+Sample.plist

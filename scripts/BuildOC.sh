@@ -2,7 +2,7 @@
 
 #=========================BUILD OC EFI=========================
 # Filename: BuildOC.sh
-# Version 22.6.29
+# Version 22.7.20
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==============================================================
 
