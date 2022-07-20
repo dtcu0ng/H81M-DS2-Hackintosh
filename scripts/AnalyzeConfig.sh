@@ -55,8 +55,8 @@ AnalyzeConfig() {
         echo "::error::The config is not exist"
         exit 1
     fi
-    ./OpenCore/Utilities/ocvalidate/ocvalidate ../config/$TAG/config.plist || exit 1
-    ./OpenCore/Utilities/ocvalidate/ocvalidate ../config/$TAG/config_igpu.plist || exit 1
+    ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/$TAG/config.plist || exit 1
+    ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/$TAG/config_igpu.plist || exit 1
 }
 
 Main() {
