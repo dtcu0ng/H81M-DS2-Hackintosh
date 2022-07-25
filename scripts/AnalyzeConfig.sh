@@ -6,8 +6,8 @@
 #==============================================================
 
 Cleanup() {
-    rm -f ../config/SampleRemote.plist
-    rm -rf ../OpenCore
+    rm -f ./config/Sample.plist
+    rm -rf ./OpenCore
 }
 
 CompareLocal() {
