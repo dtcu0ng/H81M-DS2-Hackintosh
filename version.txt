@@ -1,2 +1,2 @@
-OC version: 0.8.2
+OC version: 0.8.3
 Local plist version: 0.8.2
