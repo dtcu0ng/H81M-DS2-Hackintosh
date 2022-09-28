@@ -31,7 +31,8 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | Bo mạch chủ | Gigabyte H81M-DS2 (rev3.0), BIOS version F3  |
 | CPU:  | Intel Xeon E3-1220 v3 (Haswell, 3,10 GHZ up to 3,50GHz, 4 core 4 thread)  |
 | RAM:  | 8GB (2x4GB)  |
-| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), hỗ trợ trực tiếp trên Mojave, Catalina, Big Sur. (*) |
+| GPU:  | NVIDIA Geforce GTX 1050 (GP107, 128bit, 2GB GDDR5), chỉ hỗ trợ trên macOS Sierra, High Sierra. (*) |
+| GPU (cũ):  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), hỗ trợ trực tiếp trên Mojave, Catalina, Big Sur. (**) |
 | Ổ cứng:  | Netac SSD 128GB, WD Blue 256GB  |
 | Mạng: | Realtek RTL8111 |
 | Âm thanh:  | Realtek ALC887 (mình đang sử dụng layout-id là 3)  |
@@ -55,9 +56,11 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 
 Lưu ý:
 
-(*): macOS 12 (Monterey) không hỗ trợ SMBIOS iMac15,1 trở xuống, vì vậy hãy dùng SMBIOS iMac16,1 (nếu bạn không sử dụng iGPU) hoặc iMac17,1 (nếu bạn sử dụng dGPU) và thêm -lilubetaall vào boot-args.
+(*): Phải cài Web Driver mới có thể sử dụng được trên 2 phiên bản macOS này.
 
-(*): Apple đã dừng hỗ trợ cho các dòng card NVIDIA Kepler trên phiên bản macOS Monterey Beta 7, vì thế bạn nên chú ý cấu hình máy tính trước khi cài đặt. Đừng cập nhật lên Beta 7 nếu bạn đang ở phiên bản < Beta 6 hoặc quay lại các phiên bản cũ hơn như Big Sur hoặc Catalina.
+(**): macOS 12 (Monterey) không hỗ trợ SMBIOS iMac15,1 trở xuống, vì vậy hãy dùng SMBIOS iMac16,1 (nếu bạn không sử dụng iGPU) hoặc iMac17,1 (nếu bạn sử dụng dGPU) và thêm -lilubetaall vào boot-args.
+
+(**): Apple đã dừng hỗ trợ cho các dòng card NVIDIA Kepler trên phiên bản macOS Monterey Beta 7, vì thế bạn nên chú ý cấu hình máy tính trước khi cài đặt. Đừng cập nhật lên Beta 7 nếu bạn đang ở phiên bản < Beta 6 hoặc quay lại các phiên bản cũ hơn như Big Sur hoặc Catalina.
 
 ## Những thứ đang hoạt động
 - [x] Microphone (thông qua cổng 3.5mm màu hồng)

@@ -32,7 +32,8 @@ English | [Vietnamese](README_vi.md)
 | Mainboard | Gigabyte H81M-DS2 (rev3.0), BIOS version F2  |
 | CPU:  | Intel Xeon E3-1220 v3 (Haswell, 3,10 GHZ up to 3,50GHz, 4 core 4 thread)  |
 | RAM:  | 4GB (DDR3-1600)  |
-| GPU:  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. (*) |
+| GPU:  | NVIDIA Geforce GTX 1050 (GP107, 128bit, 2GB GDDR5), driver support only up to macOS Sierra, High Sierra .(*) |
+| GPU (old):  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. (**) |
 | Disk:  | Netac SSD 128GB, WD Blue 256GB  |
 | Network: | Realtek RTL8111 |
 | Sound:  | Realtek ALC887 (best layout-id in my build is 3)  |
@@ -56,9 +57,11 @@ English | [Vietnamese](README_vi.md)
 
 Notes:
 
-(*): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
+(*): WebDriver required when using these macOS versions.
 
-(*): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
+(**): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
+
+(**): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
 
 ## What is working
 
