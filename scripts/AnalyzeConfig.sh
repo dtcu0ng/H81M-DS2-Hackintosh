@@ -40,7 +40,7 @@ AnalyzeConfig() {
     mkdir "OpenCore" && cd "OpenCore" || exit 1
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
     TAG="${RELEASE_URL##*/}"
-    echo "::set-output name=octag::${TAG}"
+    echo "{octag}=${TAG}" >> $GITHUB_OUTPUT
     url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-RELEASE.zip
     curl -# -L -O "${url}" || exit 1
     unzip -o -qq "*.zip" || exit 1

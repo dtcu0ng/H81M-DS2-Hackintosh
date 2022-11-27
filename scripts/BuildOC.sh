@@ -9,10 +9,10 @@
 check_input() {
     if [ "$TARGET" == "DEBUG" ]; then
         echo Found valid target: $TARGET
-        echo "::set-output name=buildtarget::${TARGET}"
+        echo "{buildtarget}=${TARGET}" >> $GITHUB_OUTPUT
     elif [ "$TARGET" == "RELEASE" ]; then
         echo Found valid target: $TARGET
-        echo "::set-output name=buildtarget::${TARGET}"
+        echo "{buildtarget}=${TARGET}" >> $GITHUB_OUTPUT
     else
         echo Unvaild target: $TARGET
         exit 1
@@ -26,7 +26,7 @@ download_bootloader() {
     rm -rf DownloadedKexts
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
     TAG="${RELEASE_URL##*/}"
-    echo "::set-output name=octag::${TAG}"
+    echo "{octag}=${TAG}" >> $GITHUB_OUTPUT
     url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-$TARGET.zip
     echo Downloading OpenCore $TAG $TARGET
     curl -# -L -O "${url}" || exit 1
