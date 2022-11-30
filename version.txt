@@ -1,3 +1,3 @@
-OC version: 0.8.6 (force build)
-Builded plist for version: 0.8.4
-Local sample plist version: 0.8.4
+OC version: 0.8.6
+Builded plist for version: 0.8.6
+Local sample plist version: 0.8.6
