@@ -47,12 +47,12 @@ English | [Vietnamese](README_vi.md)
 ## Compatible with
 
 - [x] Windows 10
-- [x] macOS Monterey Beta 1*
+- [x] macOS Monterey Beta 1
 - [x] macOS Big Sur
 - [x] macOS Catalina
 - [x] macOS Mojave
-- [x] macOS High Sierra
-- [x] macOS Sierra
+- [x] macOS High Sierra (*)
+- [x] macOS Sierra (*)
 - [x] Mac OS X El Captain
 
 Notes:
