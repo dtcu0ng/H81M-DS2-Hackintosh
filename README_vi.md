@@ -29,7 +29,7 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | Bộ phận  | Tên |
 | ------------- | ------------- |
 | Bo mạch chủ | Gigabyte H81M-DS2 (rev3.0), BIOS version F3  |
-| CPU:  | Intel Xeon E3-1220 v3 (Haswell, 3,10 GHZ up to 3,50GHz, 4 core 4 thread)  |
+| CPU:  | Intel Xeon E3-1241 v3 (Haswell, 3,50 GHZ up to 3,90GHz, 4 core 8 thread)  |
 | RAM:  | 8GB (2x4GB)  |
 | GPU:  | NVIDIA Geforce GTX 1050 (GP107, 128bit, 2GB GDDR5), chỉ hỗ trợ trên macOS Sierra, High Sierra. (*) |
 | GPU (cũ):  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), hỗ trợ trực tiếp trên Mojave, Catalina, Big Sur. (**) |

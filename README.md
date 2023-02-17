@@ -30,7 +30,7 @@ English | [Vietnamese](README_vi.md)
 | Part  | Info |
 | ------------- | ------------- |
 | Mainboard | Gigabyte H81M-DS2 (rev3.0), BIOS version F2  |
-| CPU:  | Intel Xeon E3-1220 v3 (Haswell, 3,10 GHZ up to 3,50GHz, 4 core 4 thread)  |
+| CPU:  | Intel Xeon E3-1241 v3 (Haswell, 3,50 GHZ up to 3,90GHz, 4 core 8 thread)  |
 | RAM:  | 4GB (DDR3-1600)  |
 | GPU:  | NVIDIA Geforce GTX 1050 (GP107, 128bit, 2GB GDDR5), driver support only up to macOS Sierra, High Sierra .(*) |
 | GPU (old):  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. (**) |
