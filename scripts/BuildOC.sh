@@ -6,35 +6,35 @@
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==============================================================
 
-check_input() {
+checkInput() {
     if [ "$TARGET" == "DEBUG" ]; then
         echo Found valid target: $TARGET
-        echo "buildtarget=${TARGET}" >> $GITHUB_OUTPUT
+        echo "buildTarget=${TARGET}" >> $GITHUB_OUTPUT
     elif [ "$TARGET" == "RELEASE" ]; then
         echo Found valid target: $TARGET
-        echo "buildtarget=${TARGET}" >> $GITHUB_OUTPUT
+        echo "buildTarget=${TARGET}" >> $GITHUB_OUTPUT
     else
         echo Unvaild target: $TARGET
         exit 1
     fi
 }
 
-download_bootloader() {
+downloadBootloader() {
     echo Cleaning up current EFI...
     rm -rf H81M-DS2-EFI
     rm -rf EFI
     rm -rf DownloadedKexts
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
-    TAG="${RELEASE_URL##*/}"
-    echo "octag=${TAG}" >> $GITHUB_OUTPUT
-    url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-$TARGET.zip
-    echo Downloading OpenCore $TAG $TARGET
+    releaseURL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
+    tag="${releaseURL##*/}"
+    echo "octag=${tag}" >> $GITHUB_OUTPUT
+    url=https://github.com/acidanthera/OpenCorePkg/releases/download/$tag/OpenCore-$tag-$TARGET.zip
+    echo Downloading OpenCore $tag $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
-    echo "Installed OpenCore version $TAG ($TARGET) and kexts ($TARGET) in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> installed_compoments.txt
+    echo "Installed OpenCore version $tag ($TARGET) and kexts ($TARGET) in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> installed_compoments.txt
 }
 
-make_efi() {
+makeEFI() {
     echo Making standard OpenCore EFI folder...
     cd X64/EFI/OC
     cd Drivers
@@ -45,7 +45,7 @@ make_efi() {
     cp -R X64/EFI EFI
 }
 
-copy_stuff() {
+copyStuff() {
     echo Copying SSDTs...
     cp ACPI/SSDT-EC.aml EFI/OC/ACPI
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
@@ -54,34 +54,34 @@ copy_stuff() {
     cp installed_compoments.txt EFI/OC
 }
 
-copy_config(){
-    if [ -d "config/$TAG" ]; then
+copyConfig(){
+    if [ -d "config/$tag" ]; then
         echo Copying OpenCore config...
-        cp config/$TAG/config_igpu.plist EFI/OC
-        cp config/$TAG/config.plist EFI/OC
+        cp config/$tag/config_igpu.plist EFI/OC
+        cp config/$tag/config.plist EFI/OC
         cp config/CONFIG_README.txt EFI/OC
     else
         echo "DO NOT USE THIS EFI BUILD UNLESS THERE ARE A COMPATIBLE CONFIG.PLIST PRESENT" >> EFI\OC\WARNING.txt
-        echo "::warning::0 file copied because no config for this version ($TAG) present. You can't use this EFI unless there is a config.plist suitable for version $TAG"
+        echo "::warning::0 file copied because no config for this version ($tag) present. You can't use this EFI unless there is a config.plist suitable for version $tag"
     fi
 }
 
-cleanup() {
+cleanUp() {
     echo Cleaning up...
     rm -r Docs
     rm -r IA32
     rm -r Utilities
     rm -r X64
-    rm OpenCore-$TAG-$TARGET.zip
+    rm OpenCore-$tag-$TARGET.zip
 }
 
 main() {
-    check_input
-    download_bootloader
-    make_efi
-    copy_stuff
-    copy_config
-    cleanup
+    checkInput
+    downloadBootloader
+    makeEFI
+    copyStuff
+    copyConfig
+    cleanUp
 }
 
 main

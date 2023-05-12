@@ -5,14 +5,14 @@
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==============================================================
 
-Cleanup() {
+cleanUp() {
     rm -f ./config/Sample.plist
     rm -rf ./OpenCore
 }
 
-CompareLocal() {
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
-    TAG="${RELEASE_URL##*/}"
+compareLocal() {
+    releaseURL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
+    TAG="${releaseURL##*/}"
     echo Downloading latest OpenCore sample config...
     curl -# -L -O "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/$TAG/Docs/Sample.plist" || exit 1
     mv "Sample.plist" "./config/Sample.plist"
@@ -32,14 +32,14 @@ CompareLocal() {
         echo "::error::The local config is not exist"
         exit 1
     fi
-    AnalyzeConfig
+    analyzeConfig
 }
 
-AnalyzeConfig() {
+analyzeConfig() {
     echo Downloading OpenCore...
     mkdir "OpenCore" && cd "OpenCore" || exit 1
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
-    TAG="${RELEASE_URL##*/}"
+    releaseURL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/acidanthera/OpenCorePkg/releases/latest)
+    TAG="${releaseURL##*/}"
     echo "octag=${TAG}" >> $GITHUB_OUTPUT
     url=https://github.com/acidanthera/OpenCorePkg/releases/download/$TAG/OpenCore-$TAG-RELEASE.zip
     curl -# -L -O "${url}" || exit 1
@@ -59,9 +59,9 @@ AnalyzeConfig() {
     ./OpenCore/Utilities/ocvalidate/ocvalidate ./config/$TAG/config_igpu.plist || exit 1
 }
 
-Main() {
-    Cleanup
-    CompareLocal
+main() {
+    cleanUp
+    compareLocal
 }
 
-Main
+main
