@@ -16,8 +16,8 @@ prepare() {
 }
 
 fetchGithubtag(){ # now this is useless, but it will be useful later...
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$repository/releases/latest)
-    tag="${RELEASE_URL##*/}"
+    releaseURL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$repository/releases/latest)
+    tag="${releaseURL##*/}"
 }
 
 downloadKextGithub() {
