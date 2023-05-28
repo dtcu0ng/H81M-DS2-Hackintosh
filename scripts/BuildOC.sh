@@ -31,7 +31,7 @@ downloadBootloader() {
     echo Downloading OpenCore $tag $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
-    echo "Installed OpenCore version $tag ($TARGET) and kexts ($TARGET) in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> installed_compoments.txt
+    echo "Installed OpenCore version $tag ($TARGET) and kexts ($TARGET) in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> installedCompoments.txt
 }
 
 makeEFI() {

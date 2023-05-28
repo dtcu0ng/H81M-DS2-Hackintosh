@@ -15,63 +15,63 @@ prepare() {
 
 }
 
-fetchGithubtag(){ # now this is useless, but it will be useful later...
+fetchGithubTag(){ # now this is useless, but it will be useful later...
     RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$repository/releases/latest)
-    tag="${RELEASE_URL##*/}"
+    Tag="${RELEASE_URL##*/}"
 }
 
 downloadKextGithub() {
-    url=https://github.com/$repository/releases/download/$tag/$kextName-$tag-$TARGET.zip
-    echo Downloading $kextName v$tag
+    url=https://github.com/$repository/releases/download/$Tag/$kextName-$Tag-$TARGET.zip
+    echo Downloading $kextName v$Tag
     curl -# -L -O "${url}" || exit 1
-    unzip -qq "$kextName-$tag-$TARGET.zip" || exit 1
-    rm "$kextName-$tag-$TARGET.zip" # clean up
-    echo "+ $kextName @ $tag" >> ../EFI/OC/installed_compoments.txt
+    unzip -qq "$kextName-$Tag-$TARGET.zip" || exit 1
+    rm "$kextName-$Tag-$TARGET.zip" # clean up
+    echo "+ $kextName @ $Tag" >> ../EFI/OC/installedCompoments.txt
 }
 
-downloadKextGithubCustom() {  # for custom kexts are not have filename formatted with $kextName-$tag-$TARGET.zip or outside GitHub
-    echo Downloading $kextName v$tag
+downloadKextGithubCustom() {  # for custom kexts are not have filename formatted with $kextName-$Tag-$TARGET.zip or outside GitHub
+    echo Downloading $kextName v$Tag
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$kextFilename.zip" || exit 1
     rm "$kextFilename.zip"
-    echo "+ $kextName @ $tag" >> ../EFI/OC/installed_compoments.txt
+    echo "+ $kextName @ $Tag" >> ../EFI/OC/installedCompoments.txt
 }
 
 virtualsmcDownload() {
     repository="acidanthera/VirtualSMC"
     kextName="VirtualSMC"
-    fetchGithubtag
+    fetchGithubTag
     downloadKextGithub
 }
 
 whatevergreenDownload() {
     repository="acidanthera/WhateverGreen"
     kextName="WhateverGreen"
-    fetchGithubtag
+    fetchGithubTag
     downloadKextGithub
 }
 
 liluDownload() {
     repository="acidanthera/lilu"
     kextName="Lilu"
-    fetchGithubtag
+    fetchGithubTag
     downloadKextGithub
 }
 
 realtek8111Download() { # hard worked to get this work, i know i'm noob, stfu
     repository="Mieze/RTL8111_driver_for_OS_X"
     kextName="RealtekRTL8111"
-    fetchGithubtag
-    RTLtag=$tag # we need this to copy kext, cuz extracted of this file are very different.
-    kextFilename=$kextName-V$tag
-    url=https://github.com/$repository/releases/download/$tag/$kextFilename.zip
+    fetchGithubTag
+    RTLTag=$Tag # we need this to copy kext, cuz extracted of this file are very different.
+    kextFilename=$kextName-V$Tag
+    url=https://github.com/$repository/releases/download/$Tag/$kextFilename.zip
     downloadKextGithubCustom
 }
 
 applealcDownload() {
     repository="acidanthera/AppleALC"
     kextName="AppleALC"
-    fetchGithubtag
+    fetchGithubTag
     downloadKextGithub
 }
 
@@ -79,7 +79,7 @@ usbinjectallDownload() { # manually update, because releases of this kext are ou
     url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
     kextName="USBInjectAll"
     kextFilename="RehabMan-USBInjectAll-2018-1108"
-    tag="2018-1108" #this is not necessary, but i added tag variable for write it to installed_compoments.txt
+    Tag="2018-1108" #this is not necessary, but i added Tag variable for write it to installed_compoments.txt
     downloadKextGithubCustom
 }
 
@@ -94,7 +94,7 @@ copyKext() {
     cp -R DownloadedKexts/WhateverGreen.kext EFI/OC/Kexts/WhateverGreen.kext
     cp -R DownloadedKexts/Lilu.kext EFI/OC/Kexts/Lilu.kext
     cp -R DownloadedKexts/$TARGET/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
-    cp -R DownloadedKexts/RealtekRTL8111-V$RTLtag/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
+    cp -R DownloadedKexts/RealtekRTL8111-V$RTLTag/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
 lastStep() {
