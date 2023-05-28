@@ -79,7 +79,7 @@ usbinjectallDownload() { # manually update, because releases of this kext are ou
     url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
     kextName="USBInjectAll"
     kextFilename="RehabMan-USBInjectAll-2018-1108"
-    Tag="2018-1108" #this is not necessary, but i added Tag variable for write it to installed_compoments.txt
+    Tag="2018-1108" #this is not necessary, but i added Tag variable for write it to installedCompoments.txt
     downloadKextGithubCustom
 }
 

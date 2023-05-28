@@ -51,7 +51,7 @@ copyStuff() {
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying HFS driver...
     cp Drivers/HfsPlus.efi EFI/OC/Drivers
-    cp installed_compoments.txt EFI/OC
+    cp installedCompoments.txt EFI/OC
 }
 
 copyConfig(){
