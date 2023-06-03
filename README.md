@@ -57,11 +57,11 @@ English | [Vietnamese](README_vi.md)
 
 Notes:
 
-(*): WebDriver required when using these macOS versions.
+(*): WebDriver is required when using these macOS versions.
 
-(**): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU) and add -lilubetaall to boot-args.
+(**): macOS 12 Monterey does not support iMac15,1 or older SMBIOS, use iMac16,1 (if you only have iGPU) or iMac17,1 (if you have dGPU).
 
-(**): Apple dropped support for Kepler NVIDIA grapics card since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
+(**): Apple dropped support for Kepler NVIDIA graphics cards since Monterey Beta 7, so you need be cautious, if you in Monterey < Beta 6, don't update to Beta 7 or just go back to earlier version like Big Sur, Catalina,...
 
 ## What is working
 
@@ -84,7 +84,7 @@ Notes:
 (**): If Bootcamp don't work in your machine, you need select another OS disk in UEFI settings to boot another OS.
 
 ## Guide for low-end CPUs
-+ Because macOS don't support low-end CPUs like Pentium, Celeron, so we need a use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
++ Because macOS doesn't provide support for low-end CPUs like Pentium, Celeron, so we need to use the Fake CPUID and some changes, patches for that CPU to boot in MacOS:
 
 Tutorial:
 + In your config.plist, goto Kernel > Emulate add these data into required value
@@ -108,12 +108,12 @@ Here is another way you can correctly download the EFI:
 | ![don't use this](images/dont_use_this_to_download.png "Don't use this") | ![use this](images/use_this.png "Use this") | ![and this](images/and_this.png "and this") |
 
 ## Additional
-+ (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver
++ (Only High Sierra) If you have NVIDIA graphics card, use this terminal command to install Web driver:
 
 ```
 bash <(curl -s https://raw.githubusercontent.com/Benjamin-Dobell/nvidia-update/master/nvidia-update.sh)
 ```
-Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), use this [link](https://github.com/Benjamin-Dobell/nvidia-update/) to learn more.
+Code by [Benjamin-Dobell](https://github.com/Benjamin-Dobell/), visit this [link](https://github.com/Benjamin-Dobell/nvidia-update/) to learn more.
 + (Only High Sierra) I installed CUDA driver too, get this in [here](https://www.nvidia.com/en-us/drivers/cuda/mac-driver-archive/)
 + Updating...
 ## Thanks
