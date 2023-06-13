@@ -3,7 +3,7 @@
 OpenCore EFI folder for mainboard Gigabyte H81M-DS2 (rev3.0).
 
 
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/dtcu0ng/H81M-DS2-Hackintosh)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![ocvalidate check](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/workflows/CI/badge.svg)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/dtcu0ng/H81M-DS2-Hackintosh?style=for-the-badge&color=1A91FF)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?style=for-the-badge&logo=github&color=1A91FF)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
 
 English | [Vietnamese](README_vi.md)
 
@@ -30,8 +30,8 @@ English | [Vietnamese](README_vi.md)
 | Part  | Info |
 | ------------- | ------------- |
 | Mainboard | Gigabyte H81M-DS2 (rev3.0), BIOS version F2  |
-| CPU:  | Intel Xeon E3-1241 v3 (Haswell, 3,50 GHZ up to 3,90GHz, 4 core 8 thread)  |
-| RAM:  | 4GB (DDR3-1600)  |
+| CPU:  | Intel Xeon E3-1241 v3 (Haswell, 3,50GHz up to 3,90GHz, 4 core 8 thread)  |
+| RAM:  | 8GB (2x4GB 1333MHz DDR3)  |
 | GPU:  | NVIDIA Geforce GTX 1050 (GP107, 128bit, 2GB GDDR5), driver support only up to macOS Sierra, High Sierra .(*) |
 | GPU (old):  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), natively support in Mojave, Catalina. (**) |
 | Disk:  | Netac SSD 128GB, WD Blue 256GB  |
@@ -99,7 +99,7 @@ Cpuid1Mask: FFFFFFFF 00000000 00000000 00000000
 + Some problem are described/fix like this [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) post.
 
 ## How to download EFI
-+ To download the latest EFI, simply click the download badge on the very first lines of README. If you don't want to scroll up, I've bring it down here for you: [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
++ To download the latest EFI, simply click the download badge on the very first lines of README. If you don't want to scroll up, I've bring it down here for you: [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?style=for-the-badge&logo=github&color=1A91FF)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
 
 Here is another way you can correctly download the EFI:
 

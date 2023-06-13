@@ -1,6 +1,6 @@
 ## H81M-DS2-Hackintosh
 
-[![Phiên bản mới nhất](https://img.shields.io/github/v/release/dtcu0ng/H81M-DS2-Hackintosh)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?label=t%E1%BA%A3i%20xu%E1%BB%91ng)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![Kiểm tra ocvalidate](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/workflows/CI/badge.svg)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/actions)
+[![Phiên bản mới nhất](https://img.shields.io/github/v/release/dtcu0ng/H81M-DS2-Hackintosh?style=for-the-badge&color=1A91FF)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases) [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?style=for-the-badge&logo=github&color=1A91FF)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
 
 [English](README) | Vietnamese
 
@@ -29,8 +29,8 @@ OpenCore EFI cho bo mạch chủ Gigabyte H81M-DS2 (rev3.0)
 | Bộ phận  | Tên |
 | ------------- | ------------- |
 | Bo mạch chủ | Gigabyte H81M-DS2 (rev3.0), BIOS version F3  |
-| CPU:  | Intel Xeon E3-1241 v3 (Haswell, 3,50 GHZ up to 3,90GHz, 4 core 8 thread)  |
-| RAM:  | 8GB (2x4GB)  |
+| CPU:  | Intel Xeon E3-1241 v3 (Haswell, 3,50GHz up to 3,90GHz, 4 core 8 thread)  |
+| RAM:  | 8GB (2x4GB 1333MHz DDR3)  |
 | GPU:  | NVIDIA Geforce GTX 1050 (GP107, 128bit, 2GB GDDR5), chỉ hỗ trợ trên macOS Sierra, High Sierra. (*) |
 | GPU (cũ):  | NVIDIA Geforce GT 730 (GK208B, 128bit, 2GB GDDR5), hỗ trợ trực tiếp trên Mojave, Catalina, Big Sur. (**) |
 | Ổ cứng:  | Netac SSD 128GB, WD Blue 256GB  |
@@ -99,7 +99,7 @@ CpuidMask: FFFFFFFF 00000000 00000000 00000000
 + Các hướng dẫn trên được mình tìm hiểu và thử nghiệm dựa trên bài đăng [Reddit](https://www.reddit.com/r/hackintosh/comments/gn41rk/stuck_in_oc_watchdog_status_is_0/) này.
 
 ## Cách tải xuống EFI đúng cách
-+ Để tải xuống EFI, bạn chỉ cần ấn vào nút downloads ở những dòng đầu tiên của README. Còn nếu bạn không muốn kéo lên, thì mình đã đem xuống cho bạn rồi đây: [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
++ Để tải xuống EFI, bạn chỉ cần ấn vào nút downloads ở những dòng đầu tiên của README. Còn nếu bạn không muốn kéo lên, thì mình đã đem xuống cho bạn rồi đây: [![GitHub all releases](https://img.shields.io/github/downloads/dtcu0ng/H81M-DS2-Hackintosh/total?style=for-the-badge&logo=github&color=1A91FF)](https://github.com/dtcu0ng/H81M-DS2-Hackintosh/releases)
 
 Còn đây cũng là một cách để tải về đúng EFI:
 
