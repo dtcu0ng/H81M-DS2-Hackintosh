@@ -7,3 +7,6 @@ DS_Store
 test.sh
 OpenCore/*
 Sample.plist
+
+# unnecessary files
+Kexts/*
