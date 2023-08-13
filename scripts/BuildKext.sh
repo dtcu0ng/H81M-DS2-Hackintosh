@@ -26,7 +26,7 @@ downloadKextGithub() {
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$kextName-$Tag-$TARGET.zip" || exit 1
     rm "$kextName-$Tag-$TARGET.zip" # clean up
-    echo "+ $kextName @ $Tag" >> ../EFI/OC/installedCompoments.txt
+    echo -e "+ $kextName @ $Tag\n" >> ../EFI/OC/installedCompoments.md
 }
 
 downloadKextGithubCustom() {  # for custom kexts are not have filename formatted with $kextName-$Tag-$TARGET.zip or outside GitHub
@@ -34,7 +34,7 @@ downloadKextGithubCustom() {  # for custom kexts are not have filename formatted
     curl -# -L -O "${url}" || exit 1
     unzip -qq "$kextFilename.zip" || exit 1
     rm "$kextFilename.zip"
-    echo "+ $kextName @ $Tag" >> ../EFI/OC/installedCompoments.txt
+    echo -e "+ $kextName @ $Tag\n" >> ../EFI/OC/installedCompoments.md
 }
 
 virtualsmcDownload() {
@@ -79,7 +79,7 @@ usbinjectallDownload() { # manually update, because releases of this kext are ou
     url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
     kextName="USBInjectAll"
     kextFilename="RehabMan-USBInjectAll-2018-1108"
-    Tag="2018-1108" #this is not necessary, but i added Tag variable for write it to installedCompoments.txt
+    Tag="2018-1108" #this is not necessary, but i added Tag variable for write it to installedCompoments.md
     downloadKextGithubCustom
 }
 
