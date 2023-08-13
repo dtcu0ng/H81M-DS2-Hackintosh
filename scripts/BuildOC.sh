@@ -33,7 +33,7 @@ downloadBootloader() {
     unzip -qq "*.zip" || exit 1
     echo -e "# OpenCore version $tag in CI #$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
     echo -e "Commit: $GITHUB_SHA\n" >> installedCompoments.md
-    echo -e "OpenCore and kexts target: ($TARGET)\n" >> installedCompoments.md
+    echo -e "Target: $TARGET\n" >> installedCompoments.md
     echo -e "Build date: $(date)\n" >> installedCompoments.md
     echo -e "Build branch: ${GITHUB_REF##*/}\n\n" >> installedCompoments.md
     echo -e "### Installed kexts:\n" >> installedCompoments.md
