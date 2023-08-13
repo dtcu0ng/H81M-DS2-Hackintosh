@@ -31,14 +31,16 @@ downloadBootloader() {
     echo Downloading OpenCore $tag $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
-    echo -e "# OpenCore version $tag in CI#$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
-    echo -e "Commit: $GITHUB_SHA ($TARGET)\n" >> installedCompoments.md
+    echo -e "# OpenCore version $tag in CI #$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
+    echo -e "Commit: $GITHUB_SHA\n" >> installedCompoments.md
+    echo -e "OpenCore and kexts target: ($TARGET)\n" >> installedCompoments.md
+    echo -e "Build date: $(date)\n" >> installedCompoments.md
     echo -e "Build branch: ${GITHUB_REF##*/}\n\n" >> installedCompoments.md
     echo -e "### Installed kexts:\n" >> installedCompoments.md
 }
 
 makeEFI() {
-    echo Making standard OpenCore EFI folder...
+    echo Making OpenCore EFI...
     cd X64/EFI/OC
     cd Drivers
     find . ! -name 'OpenRuntime.efi' ! -name 'ResetNvramEntry.efi' ! -name "ToggleSipEntry.efi" -delete
