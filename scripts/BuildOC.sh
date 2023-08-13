@@ -31,7 +31,10 @@ downloadBootloader() {
     echo Downloading OpenCore $tag $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
-    echo "Installed OpenCore version $tag ($TARGET) and kexts ($TARGET) in CI#$GITHUB_RUN_NUMBER for commit $GITHUB_SHA:" >> installedCompoments.txt
+    echo -e "# OpenCore version $tag in CI#$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
+    echo -e "Commit: $GITHUB_SHA ($TARGET)\n" >> installedCompoments.md
+    echo -e "Build branch: ${GITHUB_REF##*/}\n\n" >> installedCompoments.md
+    echo -e "### Installed kexts:\n" >> installedCompoments.md
 }
 
 makeEFI() {
@@ -51,7 +54,7 @@ copyStuff() {
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying HFS driver...
     cp Drivers/HfsPlus.efi EFI/OC/Drivers
-    cp installedCompoments.txt EFI/OC
+    cp installedCompoments.md EFI/OC
 }
 
 copyConfig(){
