@@ -31,6 +31,10 @@ downloadBootloader() {
     echo Downloading OpenCore $tag $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
+}
+
+writeInfo() {
+    echo "Building installedCompoments.md..."
     echo -e "# OpenCore version $tag in CI #$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
     echo -e "Commit: $GITHUB_SHA\n" >> installedCompoments.md
     echo -e "Target: $TARGET\n" >> installedCompoments.md
@@ -86,6 +90,7 @@ main() {
     makeEFI
     copyStuff
     copyConfig
+    writeInfo
     cleanUp
 }
 
