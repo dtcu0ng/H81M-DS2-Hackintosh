@@ -7,10 +7,7 @@
 #==============================================================
 
 checkTarget() {
-    if [ "$TARGET" == "DEBUG" ]; then
-        echo Found valid target: $TARGET
-        echo "buildTarget=${TARGET}" >> $GITHUB_OUTPUT
-    elif [ "$TARGET" == "RELEASE" ]; then
+    if [[ "$TARGET" == "DEBUG" || "TARGET" == "RELEASE" ]]; then
         echo Found valid target: $TARGET
         echo "buildTarget=${TARGET}" >> $GITHUB_OUTPUT
     else
