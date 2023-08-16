@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#=========================BUILD OC EFI=========================
+#==============================================================
 # Filename: BuildOC.sh
-# Version 22.7.20
+# Version 23.8.16
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==============================================================
 
-checkInput() {
+checkTarget() {
     if [ "$TARGET" == "DEBUG" ]; then
         echo Found valid target: $TARGET
         echo "buildTarget=${TARGET}" >> $GITHUB_OUTPUT
@@ -31,12 +31,17 @@ downloadBootloader() {
     echo Downloading OpenCore $tag $TARGET
     curl -# -L -O "${url}" || exit 1
     unzip -qq "*.zip" || exit 1
+}
+
+writeInfo() {
+    echo "Generating installedCompoments.md..."
     echo -e "# OpenCore version $tag in CI #$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
     echo -e "Commit: $GITHUB_SHA\n" >> installedCompoments.md
     echo -e "Target: $TARGET\n" >> installedCompoments.md
     echo -e "Build date: $(date)\n" >> installedCompoments.md
     echo -e "Build branch: ${GITHUB_REF##*/}\n\n" >> installedCompoments.md
     echo -e "### Installed kexts:\n" >> installedCompoments.md
+    cp installedCompoments.md EFI/OC
 }
 
 makeEFI() {
@@ -56,7 +61,6 @@ copyStuff() {
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying HFS driver...
     cp Drivers/HfsPlus.efi EFI/OC/Drivers
-    cp installedCompoments.md EFI/OC
 }
 
 copyConfig(){
@@ -67,7 +71,7 @@ copyConfig(){
         cp config/CONFIG_README.txt EFI/OC
     else
         echo "DO NOT USE THIS EFI BUILD UNLESS THERE ARE A COMPATIBLE CONFIG.PLIST PRESENT" >> EFI\OC\WARNING.txt
-        echo "::warning::0 file copied because no config for this version ($tag) present. You can't use this EFI unless there is a config.plist suitable for version $tag"
+        echo "::warning::Config for version $tag not found. You can't use this EFI unless there is a config.plist suitable for version $tag"
     fi
 }
 
@@ -81,11 +85,12 @@ cleanUp() {
 }
 
 main() {
-    checkInput
+    checkTarget
     downloadBootloader
     makeEFI
     copyStuff
     copyConfig
+    writeInfo
     cleanUp
 }
 
