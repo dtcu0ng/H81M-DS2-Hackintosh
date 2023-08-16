@@ -34,13 +34,14 @@ downloadBootloader() {
 }
 
 writeInfo() {
-    echo "Building installedCompoments.md..."
+    echo "Generating installedCompoments.md..."
     echo -e "# OpenCore version $tag in CI #$GITHUB_RUN_NUMBER\n" >> installedCompoments.md
     echo -e "Commit: $GITHUB_SHA\n" >> installedCompoments.md
     echo -e "Target: $TARGET\n" >> installedCompoments.md
     echo -e "Build date: $(date)\n" >> installedCompoments.md
     echo -e "Build branch: ${GITHUB_REF##*/}\n\n" >> installedCompoments.md
     echo -e "### Installed kexts:\n" >> installedCompoments.md
+    cp installedCompoments.md EFI/OC
 }
 
 makeEFI() {
@@ -60,7 +61,6 @@ copyStuff() {
     cp ACPI/SSDT-PLUG.aml EFI/OC/ACPI
     echo Copying HFS driver...
     cp Drivers/HfsPlus.efi EFI/OC/Drivers
-    cp installedCompoments.md EFI/OC
 }
 
 copyConfig(){
