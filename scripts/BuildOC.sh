@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#=========================BUILD OC EFI=========================
+#==============================================================
 # Filename: BuildOC.sh
-# Version 22.7.20
+# Version 23.8.16
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==============================================================
 
-checkInput() {
+checkTarget() {
     if [ "$TARGET" == "DEBUG" ]; then
         echo Found valid target: $TARGET
         echo "buildTarget=${TARGET}" >> $GITHUB_OUTPUT
@@ -71,7 +71,7 @@ copyConfig(){
         cp config/CONFIG_README.txt EFI/OC
     else
         echo "DO NOT USE THIS EFI BUILD UNLESS THERE ARE A COMPATIBLE CONFIG.PLIST PRESENT" >> EFI\OC\WARNING.txt
-        echo "::warning::0 file copied because no config for this version ($tag) present. You can't use this EFI unless there is a config.plist suitable for version $tag"
+        echo "::warning::Config for version $tag not found. You can't use this EFI unless there is a config.plist suitable for version $tag"
     fi
 }
 
@@ -85,7 +85,7 @@ cleanUp() {
 }
 
 main() {
-    checkInput
+    checkTarget
     downloadBootloader
     makeEFI
     copyStuff
