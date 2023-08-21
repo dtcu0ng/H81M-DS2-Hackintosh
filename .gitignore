@@ -4,9 +4,14 @@ DS_Store
 .contentFlavour
 
 # test script
+compileDSDT.sh
+dumpDSDT.sh
 test.sh
 OpenCore/*
 Sample.plist
 
 # unnecessary files
 Kexts/*
+EFI/*
+installedCompoments.md
+H81M-DS2-EFI/*
