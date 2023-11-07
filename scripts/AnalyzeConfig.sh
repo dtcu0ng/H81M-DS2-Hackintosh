@@ -1,7 +1,7 @@
 #!/bin/bash
 #==============================================================
 # Filename: AnalyzeConfig.sh
-# Version 23.8.16
+# Version 23.11.7
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==============================================================
 
@@ -19,17 +19,16 @@ compareLocal() {
     if [ -f "./config/SampleLocal.plist" ]; then
         if [ -f "./config/Sample.plist" ]; then
             if ! cmp -s "./config/SampleLocal.plist" "./config/Sample.plist"; then
-                echo "::warning::The sample config is different from remote config. Please check the differences and update the local config file."
-                exit 1
+                echo "::warning::The sample config is different from the remote config. Please check the differences and update the local config file."
             else
-                echo "::notice::Same sample config. That mean you may not need to update the config."
+                echo "::notice::Same sample config. That means you may not need to update the config."
             fi
         else
-            echo "::error::The remote config file is not exist"
+            echo "::error::The remote config file does not exist"
             exit 1
         fi
     else
-        echo "::error::The local config is not exist"
+        echo "::error::The local config does not exist"
         exit 1
     fi
     analyzeConfig
@@ -48,7 +47,7 @@ analyzeConfig() {
     cd .. 
     if [ -f "./config/$TAG/config.plist" ]; then
         if [ ! -f "./config/$TAG/config_igpu.plist" ]; then
-            echo "::error::The iGPU config file is not exist"
+            echo "::error::The iGPU config file does not exist"
             exit 1
         fi
     else
