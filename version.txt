@@ -1,3 +1,3 @@
 OpenCore version: 0.9.6 (Release revision: 0)
-Builded plist for version: 0.9.5
-Local sample plist version: 0.9.5
+Builded plist for version: 0.9.6
+Local sample plist version: 0.9.6
