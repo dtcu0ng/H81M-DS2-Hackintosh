@@ -63,7 +63,7 @@ realtek8111Download() { # hard worked to get this work, i know i'm noob, stfu
     kextName="RealtekRTL8111"
     fetchGithubTag
     RTLTag=$Tag # we need this to copy kext, cuz extracted of this file are very different.
-    kextFilename=$kextName-V$Tag
+    kextFilename=$kextName-$Tag
     url=https://github.com/$repository/releases/download/$Tag/$kextFilename.zip
     downloadKextGithubCustom
 }
