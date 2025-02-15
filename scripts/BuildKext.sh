@@ -94,7 +94,7 @@ copyKext() {
     cp -R DownloadedKexts/WhateverGreen.kext EFI/OC/Kexts/WhateverGreen.kext
     cp -R DownloadedKexts/Lilu.kext EFI/OC/Kexts/Lilu.kext
     cp -R DownloadedKexts/$TARGET/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
-    cp -R DownloadedKexts/RealtekRTL8111-V$RTLTag/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
+    cp -R DownloadedKexts/RealtekRTL8111-$RTLTag/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
 lastStep() {
