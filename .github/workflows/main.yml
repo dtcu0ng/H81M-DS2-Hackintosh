@@ -28,7 +28,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
+          name: H81M-DS2-EFI-${{ steps.ocversion.outputs.octag }}-${{ steps.ocversion.outputs.buildtarget }}
           path: H81M-DS2-EFI/
 
   make-oc-debug:
@@ -52,7 +52,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: H81M-DS2-EFI_${{ steps.ocversion.outputs.octag }}_${{ steps.ocversion.outputs.buildtarget }}
+          name: H81M-DS2-EFI-${{ steps.ocversion.outputs.octag }}-${{ steps.ocversion.outputs.buildtarget }}
           path: H81M-DS2-EFI/
 
   analyze-oc-config:
