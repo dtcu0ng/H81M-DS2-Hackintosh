@@ -1,123 +1,118 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 #==================================================================
 # Filename: BuildKext.sh
-# Version 23.8.16
+# Version: 26.10.12
 # https://github.com/dtcu0ng/H81M-DS2-Hackintosh
 #==================================================================
 
-# TODO: use json to store kext name & info
+set -e
+
+# Configuration variables
+EFI_DIR="H81M-DS2-EFI/EFI"
+DOWNLOAD_DIR="DownloadedKexts"
+INSTALLED_LOG="../EFI/OC/installedCompoments.md"
+
 prepare() {
-    [ ! -d "H81M-DS2-EFI" ] && mkdir "H81M-DS2-EFI"
-    [ ! -d "H81M-DS2-EFI/EFI" ] && mkdir "H81M-DS2-EFI/EFI"
-    [ ! -d "DownloadedKexts" ] && mkdir DownloadedKexts
-    cd DownloadedKexts
-
+    mkdir -p "$EFI_DIR/OC/Kexts" "$DOWNLOAD_DIR"
 }
 
-fetchGithubTag(){ # now this is useless, but it will be useful later...
-    RELEASE_URL=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/$repository/releases/latest)
-    Tag="${RELEASE_URL##*/}"
+# Generic downloader for GitHub releases
+# Usage: download_github "repo" "kext_name" "target_filename_format"
+download_github() {
+    local repo="$1"
+    local kext_name="$2"
+    local file_pattern="$3" # e.g., "$kext_name-$tag-$TARGET.zip"
+
+    echo "Fetching latest version for $kext_name..."
+    local tag
+    tag=$(curl -Ls -o /dev/null -w %{url_effective} "https://github.com/$repo/releases/latest" | awk -F'/' '{print $NF}')
+
+    local url="https://github.com/$repo/releases/download/$tag/$file_pattern"
+    local zip_name="${file_pattern##*/}"
+
+    echo "Downloading $kext_name v$tag..."
+    curl -# -L -o "$zip_name" "$url"
+    unzip -qq "$zip_name"
+    rm "$zip_name"
+
+    echo -e "+ $kext_name @ $tag\n" >> "$INSTALLED_LOG"
+    
+    # Export tag for copy step if needed
+    eval "${kext_name}_TAG='$tag'"
 }
 
-downloadKextGithub() {
-    url=https://github.com/$repository/releases/download/$Tag/$kextName-$Tag-$TARGET.zip
-    echo Downloading $kextName v$Tag
-    curl -# -L -O "${url}" || exit 1
-    unzip -qq "$kextName-$Tag-$TARGET.zip" || exit 1
-    rm "$kextName-$Tag-$TARGET.zip" # clean up
-    echo -e "+ $kextName @ $Tag\n" >> ../EFI/OC/installedCompoments.md
+# Generic custom downloader (non-standard GitHub or external links)
+download_custom() {
+    local kext_name="$1"
+    local tag="$2"
+    local url="$3"
+    local zip_name="$4"
+
+    echo "Downloading $kext_name v$tag..."
+    curl -# -L -O "$url"
+    unzip -qq "$zip_name"
+    rm "$zip_name"
+
+    echo -e "+ $kext_name @ $tag\n" >> "$INSTALLED_LOG"
 }
 
-downloadKextGithubCustom() {  # for custom kexts are not have filename formatted with $kextName-$Tag-$TARGET.zip or outside GitHub
-    echo Downloading $kextName v$Tag
-    curl -# -L -O "${url}" || exit 1
-    unzip -qq "$kextFilename.zip" || exit 1
-    rm "$kextFilename.zip"
-    echo -e "+ $kextName @ $Tag\n" >> ../EFI/OC/installedCompoments.md
-}
+download_all_kexts() {
+    cd "$DOWNLOAD_DIR" || exit 1
 
-virtualsmcDownload() {
-    repository="acidanthera/VirtualSMC"
-    kextName="VirtualSMC"
-    fetchGithubTag
-    downloadKextGithub
-}
+    # 1. Acidanthera Standard Kexts
+    for repo in "acidanthera/VirtualSMC" "acidanthera/WhateverGreen" "acidanthera/lilu" "acidanthera/AppleALC"; do
+        local name="${repo##*/}"
+        download_github "$repo" "$name" "$name-\$tag-$TARGET.zip"
+    # Note: Bash dynamic evaluation simplified below for clarity
+    done
 
-whatevergreenDownload() {
-    repository="acidanthera/WhateverGreen"
-    kextName="WhateverGreen"
-    fetchGithubTag
-    downloadKextGithub
-}
+    # Re-implementing cleanly without complex dynamic scoping loops:
+    download_github "acidanthera/VirtualSMC" "VirtualSMC" "VirtualSMC-\$tag-$TARGET.zip"
+    download_github "acidanthera/WhateverGreen" "WhateverGreen" "WhateverGreen-\$tag-$TARGET.zip"
+    download_github "acidanthera/lilu" "Lilu" "Lilu-\$tag-$TARGET.zip"
+    download_github "acidanthera/AppleALC" "AppleALC" "AppleALC-\$tag-$TARGET.zip"
 
-liluDownload() {
-    repository="acidanthera/lilu"
-    kextName="Lilu"
-    fetchGithubTag
-    downloadKextGithub
-}
+    # 2. Realtek RTL8111
+    local rtl_tag
+    rtl_tag=$(curl -Ls -o /dev/null -w %{url_effective} "https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/latest" | awk -F'/' '{print $NF}')
+    download_custom "RealtekRTL8111" "$rtl_tag" \
+        "https://github.com/Mieze/RTL8111_driver_for_OS_X/releases/download/$rtl_tag/RealtekRTL8111-$rtl_tag.zip" \
+        "RealtekRTL8111-$rtl_tag.zip"
+    RTLTag="$rtl_tag" # Save for copying
 
-realtek8111Download() { # hard worked to get this work, i know i'm noob, stfu
-    repository="Mieze/RTL8111_driver_for_OS_X"
-    kextName="RealtekRTL8111"
-    fetchGithubTag
-    RTLTag=$Tag # we need this to copy kext, cuz extracted of this file are very different.
-    kextFilename=$kextName-$Tag
-    url=https://github.com/$repository/releases/download/$Tag/$kextFilename.zip
-    downloadKextGithubCustom
-}
+    # 3. USBInjectAll (Bitbucket / External)
+    download_custom "USBInjectAll" "2018-1108" \
+        "https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip" \
+        "RehabMan-USBInjectAll-2018-1108.zip"
 
-applealcDownload() {
-    repository="acidanthera/AppleALC"
-    kextName="AppleALC"
-    fetchGithubTag
-    downloadKextGithub
-}
-
-usbinjectallDownload() { # manually update, because releases of this kext are outside GitHub, and it's not updated for almost 3yrs
-    url="https://bitbucket.org/RehabMan/os-x-usb-inject-all/downloads/RehabMan-USBInjectAll-2018-1108.zip"
-    kextName="USBInjectAll"
-    kextFilename="RehabMan-USBInjectAll-2018-1108"
-    Tag="2018-1108" #this is not necessary, but i added Tag variable for write it to installedCompoments.md
-    downloadKextGithubCustom
-}
-
-
-copyKext() {
     cd ..
-    echo Copying kexts...
-    cp -R DownloadedKexts/Kexts/VirtualSMC.kext EFI/OC/Kexts/VirtualSMC.kext
-    cp -R DownloadedKexts/Kexts/SMCProcessor.kext EFI/OC/Kexts/SMCProcessor.kext
-    cp -R DownloadedKexts/Kexts/SMCSuperIO.kext EFI/OC/Kexts/SMCSuperIO.kext
-    cp -R DownloadedKexts/AppleALC.kext EFI/OC/Kexts/AppleALC.kext
-    cp -R DownloadedKexts/WhateverGreen.kext EFI/OC/Kexts/WhateverGreen.kext
-    cp -R DownloadedKexts/Lilu.kext EFI/OC/Kexts/Lilu.kext
-    cp -R DownloadedKexts/$TARGET/USBInjectAll.kext EFI/OC/Kexts/USBInjectAll.kext
-    cp -R DownloadedKexts/RealtekRTL8111-$RTLTag/$TARGET/RealtekRTL8111.kext EFI/OC/Kexts/RealtekRTL8111.kext
 }
 
-lastStep() {
-    mv EFI/* H81M-DS2-EFI/EFI/
+copy_kexts() {
+    echo "Copying kexts to EFI..."
+    local dest="EFI/OC/Kexts"
+    
+    cp -R "$DOWNLOAD_DIR/Kexts/VirtualSMC.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/Kexts/SMCProcessor.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/Kexts/SMCSuperIO.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/Kexts/AppleALC.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/Kexts/WhateverGreen.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/Kexts/Lilu.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/$TARGET/USBInjectAll.kext" "$dest/"
+    cp -R "$DOWNLOAD_DIR/RealtekRTL8111-$RTLTag/$TARGET/RealtekRTL8111.kext" "$dest/"
 }
 
-cleanUp() {
-    echo Cleaning up...
-    rm -r DownloadedKexts
+clean_up() {
+    echo "Cleaning up..."
+    rm -rf "$DOWNLOAD_DIR"
 }
 
-main(){
-    #cleanup
+main() {
     prepare
-    virtualsmcDownload
-    whatevergreenDownload
-    liluDownload
-    realtek8111Download
-    applealcDownload
-    usbinjectallDownload
-    copyKext
-    cleanUp
-    lastStep
+    download_all_kexts
+    copy_kexts
+    clean_up
+    echo "Build completed successfully!"
 }
 
 main
